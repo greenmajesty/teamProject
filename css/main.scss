@@ -1,0 +1,361 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    margin-top: 75px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+
+.wrap {
+    @include size (1420px, 4300px);
+    margin: 0 auto;
+}
+
+.header {
+    height: 80px;
+    display: flex;
+    line-height: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color: white;
+    border-bottom: 1px solid black;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+
+    .logo {
+        @include size (220px, 80px);
+        text-align: center;
+
+        img {
+            height: 80px;
+        }
+
+    }
+
+    .lnb {
+        @include size (740px, 80px);
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .gnb {
+        width: 460px;
+        display: flex;
+        justify-content: flex-end;
+
+        .search-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .search {
+            @include size (160px, 25px);
+            background-color: #FD8234;
+            border-radius: 15px;
+            margin-top: 30px;
+            margin-right: 22px;
+            border: none;
+            outline: none;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-button {
+            position: absolute;
+            top: 2px;
+            right: 22px;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+
+        .fas.fa-search {
+            color: white;
+        }
+
+        .search::-webkit-search-cancel-button {
+            display: none;
+        }
+
+        .login {
+            @include size (25px, 25px);
+            margin-right: 20px;
+        }
+
+        .mypage {
+            @include size (25px, 25px);
+            margin-right: 20px;
+        }
+
+        .cart {
+            @include size (25px, 25px);
+            margin-right: 25px;
+        }
+    }
+}
+
+
+
+//--------------------------------------------------------------------------header
+
+
+.main_visual {
+    @include size (1420px, 820px);
+    position: relative;
+    margin-top: 80px;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 1s ease-out;
+    }
+
+    i {
+        font-size: 60px;
+        color: #fff;
+        position: absolute;
+        top: 410px;
+        transform: translateY(-50%);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    #mainNextButton {
+        right: 0;
+    }
+
+    .dot {
+        height: 14px;
+        width: 14px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 90%;
+        z-index: 5;
+        transition: background-color 0.6s ease;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.5);
+        }
+    }
+
+    #dot0 {
+        left: 46%;
+    }
+
+    #dot1 {
+        left: 48%;
+    }
+
+    #dot3 {
+        left: 52%;
+    }
+
+    #dot4 {
+        left: 54%;
+    }
+
+    .dot.active {
+        background-color: #111;
+    }
+}
+
+
+
+//---------------------------------------------------------------------------main_visual
+
+.new_arrival {
+    @include size (1420px, 600px);
+    position: relative;
+    overflow: hidden;
+
+    .new_arrival_slide {
+        margin: 0 auto;
+        margin-top: 50px;
+        width: 1180px;
+        height: 360px;
+        position: relative;
+        overflow: hidden;
+
+        .new_arrival_contents {
+            display: flex;
+            width: 4720px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease-in-out;
+
+            .slide {
+                div {
+                    width: 360px;
+                    height: 360px;
+                    margin-right: 50px;
+                    float: left;
+
+                    img {
+                        width: 100%;
+                        user-select: none;
+                    }
+
+                    &:nth-child(3) {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    i {
+        font-size: 60px;
+        color: #ccc;
+        position: absolute;
+        top: 250px;
+    }
+
+    .fa-chevron-left {
+        top: 320px;
+        left: 70px;
+    }
+
+    .fa-chevron-right {
+        top: 320px;
+        right: 70px;
+    }
+
+    .progress_bar {
+        width: 100%;
+        height: 12px;
+        background-color: #ccc;
+        position: absolute;
+        bottom: 0;
+
+        .progress {
+            height: 100%;
+            width: 25%;
+            background-color: #FD8234;
+            position: absolute;
+            left: 0;
+            transition: left 0.3s ease-in-out;
+        }
+    }
+}
+
+//---------------------------------------------------------------------------new_arrival
+
+.best {
+    @include size (1420px, 650px);
+    margin-top: 50px;
+
+    .best_container {
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 1180px;
+        height: 458px;
+        position: relative;
+        ul {
+            li {
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+                position: absolute;
+                width: 340px;
+                height: 340px;
+                top: 64px;
+                &:nth-child(2) {
+                    top: 0;
+                    left: 280px;
+                    width: 620px;
+                    height: 458px;
+                    z-index: 2;
+                    background-color: white;
+                }
+                &:nth-child(3) {
+                    left: 840px;
+                    top: 64px;
+                }
+
+                &:nth-child(4) {
+                    display: none;
+                }
+
+                &:nth-child(5) {
+                    display: none;
+                }
+
+                &:nth-child(6) {
+                    display: none;
+                }
+            }
+        }
+        i {
+            font-size: 60px;
+            color: #ccc;
+            position: absolute;
+            top: 200px;
+        }
+        .fa-chevron-right{
+            right: -60px;
+        }
+        .fa-chevron-left{
+            left: -60px;
+        }
+
+    }
+}
+
+
+
+
+//---------------------------------------------------------------------------best
+
+.recommend {
+    @include size (1420px, 750px);
+}
+
+
+//---------------------------------------------------------------------------recommend
+
+.brand_story {
+    @include size (1420px, 700px);
+}
+
+//---------------------------------------------------------------------------main_visual
+
+
+.footer {
+    @include size (1420px, 550px);
+}
