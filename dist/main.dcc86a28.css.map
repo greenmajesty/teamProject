@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.sass"],"names":[],"mappings":"AAAA;EACI;EACA;;;AAEJ;EACI;EACA","file":"main.dcc86a28.css","sourceRoot":"..","sourcesContent":["* \r\n    padding: 0\r\n    margin: 0\r\n\r\n.logo\r\n    width:220px\r\n    height:80px\r\n\r\n    \r\n\r\n"]}

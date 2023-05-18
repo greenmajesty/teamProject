@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/main.54166fbf.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <script>document.addEventListener('DOMContentLoaded', function () {
+  var bannerImg = $('.main_visual img');
+  var bannerImgCount = bannerImg.length;
+  var bannerImageWidth = 1420;
+  var slides = document.querySelectorAll(".slide");
+  var slideContainer = document.querySelector(".new_arrival_contents");
+  var progressBar = document.querySelector(".progress");
+  var prevSlideButton = document.querySelector('#prevSlide');
+  var nextSlideButton = document.querySelector('#nextSlide');
+  var imageElements = document.querySelectorAll('.slide img');
+  var bannerAuto;
+  var bannerCurrentIndex = 0;
+  var slideIndex = 0;
+  var startX;
+  var distance;
+  var autoSlide;
+  imageElements.forEach(function (img) {
+    img.addEventListener('dragstart', function (e) {
+      e.preventDefault();
+    });
+  });
+  $(function () {
+    $(window).scroll(function () {
+      if ($(window).scrollTop() >= 80) {
+        $('.header').addClass('fixed');
+      } else {
+        $('.header').removeClass('fixed');
+      }
+    });
+  });
+  function bannerPlay() {
+    clearInterval(bannerAuto); // 추가: 이전 setInterval을 명확하게 제거
+    bannerAuto = setInterval(function () {
+      updateSlide((bannerCurrentIndex + 1) % bannerImgCount);
+    }, 2000);
+  }
+  function updateSlide(index) {
+    bannerImg.each(function (i) {
+      $(this).css('left', (i - index) * bannerImageWidth + 'px');
+    });
+    $(".dot").removeClass("active");
+    $("#dot" + index).addClass("active");
+    bannerCurrentIndex = index;
+  }
+  $('#mainPrevButton').click(function () {
+    clearInterval(bannerAuto);
+    updateSlide((bannerCurrentIndex - 1 + bannerImgCount) % bannerImgCount);
+    bannerPlay();
+  });
+  $('#mainNextButton').click(function () {
+    clearInterval(bannerAuto);
+    updateSlide((bannerCurrentIndex + 1) % bannerImgCount);
+    bannerPlay();
+  });
+  $('.main_visual').hover(function () {
+    clearInterval(bannerAuto);
+  }, function () {
+    bannerPlay();
+  });
+  $(".dot").each(function (index) {
+    $(this).click(function () {
+      clearInterval(bannerAuto);
+      updateSlide(index);
+      bannerPlay();
+    });
+  });
+  bannerPlay();
+  function updateProgressBar() {
+    var progressPercent = slideIndex / slides.length * 100;
+    document.querySelector('.progress').style.left = "".concat(progressPercent, "%");
+  }
+  function handleDragStart(e) {
+    startX = e.clientX;
+  }
+  function handleDragEnd(e) {
+    distance = startX - e.clientX;
+    if (distance > 0) {
+      showNextSlide();
+    } else if (distance < 0) {
+      showPrevSlide();
+    }
+  }
+  function showPrevSlide() {
+    slideIndex--;
+    if (slideIndex < 0) {
+      slideIndex = slides.length - 1;
+    }
+    slideContainer.style.transform = "translateX(".concat(-slideIndex * slides[0].clientWidth, "px)");
+    updateProgressBar();
+  }
+  function showNextSlide() {
+    slideIndex++;
+    if (slideIndex >= slides.length) {
+      slideIndex = 0;
+    }
+    slideContainer.style.transform = "translateX(".concat(-slideIndex * slides[0].clientWidth, "px)");
+    updateProgressBar();
+  }
+  function startAutoSlide() {
+    autoSlide = setInterval(showNextSlide, 2000);
+  }
+  function stopAutoSlide() {
+    clearInterval(autoSlide);
+  }
+  slideContainer.addEventListener("mousedown", handleDragStart);
+  slideContainer.addEventListener("mouseup", handleDragEnd);
+  slideContainer.addEventListener("mouseenter", stopAutoSlide);
+  slideContainer.addEventListener("mouseleave", startAutoSlide);
+  document.getElementById("prevSlide").addEventListener("click", showPrevSlide);
+  document.getElementById("nextSlide").addEventListener("click", showNextSlide);
+  prevSlideButton.addEventListener("mouseenter", stopAutoSlide);
+  nextSlideButton.addEventListener("mouseenter", stopAutoSlide);
+  prevSlideButton.addEventListener("mouseleave", startAutoSlide);
+  nextSlideButton.addEventListener("mouseleave", startAutoSlide);
+  startAutoSlide();
+  updateProgressBar();
+});</script>
+<script src="/main.54166fbf.js"></script></head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="logo">
+                <img src="/1962.17900d01.png" alt="">
+            </div>
+            <div class="lnb">
+                <div>shop</div>
+                <div>our story</div>
+                <div>special project</div>
+                <div>support</div>
+                <div>contact</div>
+            </div>
+            <div class="gnb">
+                <div class="search-container">
+                    <input type="search" class="search">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="login">
+                    <i class="fas fa-sign-in-alt"></i>
+                </div>
+                <div class="mypage">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+        </header>
+        <div class="main_visual">
+            <img src="/109.7df2eb62.jpg" alt="" style="left: 0">
+            <img src="/114.6980de41.jpg" alt="" style="left: 1420px">
+            <img src="/116.118aaf99.jpg" alt="" style="left: 2840px">
+            <img src="/120.8e847379.jpg" alt="" style="left: 4260px">
+            <img src="/112.35ba3465.jpg" alt="" style="left: 5480px">
+            <i class="fas fa-chevron-left" id="mainPrevButton"></i>
+            <i class="fas fa-chevron-right" id="mainNextButton"></i>
+            <div id="mainDots">
+                <div class="dot active" id="dot0"></div>
+                <div class="dot" id="dot1"></div>
+                <div class="dot" id="dot2"></div>
+                <div class="dot" id="dot3"></div>
+                <div class="dot" id="dot4"></div>
+            </div>
+        </div>
+        <div class="new_arrival">
+            <h2>new arrivals</h2>
+            <i class="fas fa-chevron-left" id="prevSlide"></i>
+            <div class="new_arrival_slide">
+                <ul class="new_arrival_contents">
+                    <li class="slide slide1">
+                        <div><img src="/MAGRITTE-1.e4533d63.png" alt=""></div>
+                        <div><img src="/ACORN-1.bdaa4f42.png" alt=""></div>
+                        <div><img src="/e-1.fca8e9a5.png" alt=""></div>
+                    </li>
+                    <li class="slide slide2">
+                        <div><img src="/CANDLE-1.cd5b50ae.png" alt=""></div>
+                        <div><img src="/SNOWMAN-1.9659907d.png" alt=""></div>
+                        <div><img src="/sub-1.bad76eca.png" alt=""></div>
+                    </li>
+                    <li class="slide slide3">
+                        <div><img src="/sub01.a1cce814.png" alt=""></div>
+                        <div><img src="/sub02.f4f4744d.png" alt=""></div>
+                        <div><img src="/sub03.cbfca336.png" alt=""></div>
+                    </li>
+                    <li class="slide slide4">
+                        <div><img src="/sub-2.e91fafe8.png" alt=""></div>
+                        <div><img src="/sub-3.2fe241ec.png" alt=""></div>
+                        <div><img src="/sub-4.0f2db79d.png" alt=""></div>
+                    </li>
+                </ul>
+            </div>
+            <i class="fas fa-chevron-right" id="nextSlide"></i>
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div class="best">
+            <h2>Best</h2>
+            <div class="best_container">
+                <ul>
+                    <li><img src="/123.a0eb1d6f.jpg" alt=""></li>
+                    <li><img src="/1234.27aaa900.jpg" alt=""></li>
+                    <li><img src="/2134.29c6d4ec.jpg" alt=""></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <i class="fas fa-chevron-left"></i>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        <div class="recommend">
+            <h2>내 공간에 꼭 맞는 조명</h2>
+            <ul class="recommend_list">
+                <li>침 실</li>
+                <li>거 실</li>
+                <li>주 방</li>
+                <li>베란다</li>
+                <li>책 상</li>
+                <div class="recommend_progress"></div>
+            </ul>
+            <div class="recommend_container">
+                <div class="recommend_main">
+                    <img src="/12345.ca8816ff.png" alt="">
+                </div>
+                <div class="recommend_side">
+                    <div><img src="/sub-1.bad76eca.png" alt=""></div>
+                    <div><img src="/sub-11.3a58c11e.png" alt=""></div>
+                    <div><img src="/sub-10.1e547db3.png" alt=""></div>
+                    <div><img src="/sub-4.0f2db79d.png" alt=""></div>
+                    <div><img src="/sub-2.e91fafe8.png" alt=""></div>
+                    <div><img src="/sub-3.2fe241ec.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="brand_story">
+            <div class="brand_visual">
+                <img src="/brand_story-1.748bb52e.png" alt="">
+            </div>
+            <div class="brand_text">
+                <h2>일광전구 브랜드 스토리</h2>
+                <h3>We Make Light</h3>
+                <h4>
+                    백열전구에 대한 신념을 바탕으로 오래된 빛에 디자인을 더해<br>
+                    새로운 제품으로 만들어나가는 도전을 계속합니다. <br>
+                    <br>
+                    반세기 동안 백열전구를 비롯한 다양한 전구들을 다루며<br>
+                    각자의 빛에는 알맞은 쓰임이 있다는 사실을 알게 되었습니다.<br> 
+                    <br>
+                    장인기업으로서 빛에대한 노하우를 갖고있는 일광전구는 아름다운 빛을 올바르게 사용하며<br>
+                    가치있는 자신의 삶을 꾸어가는 지혜를 전하는 길잡이가 되고자 합니다.<br>
+                </h4>
+                <div class="detail_btn">
+                    자세히 보기
+                </div>
+            </div>
+        </div>
+        <div class="insta">
+            <h2>
+                INSTAGRAM
+            </h2>
+            <div class="insta_link">
+                @ilkwanglighting
+            </div>
+            <ul class="insta_picture">
+                <li>
+                    <img src="/1.dc197a9a.jpg" alt="">
+                </li>
+                <li>
+                    <img src="/2.3ca6bb44.jpg" alt="">
+                </li>
+                <li>
+                    <img src="/3.a433b89d.jpg" alt="">
+                </li>
+                <li>
+                    <img src="/4.c6d96be5.jpg" alt="">
+                </li>
+                <li>
+                    <img src="/5.689b68fd.jpg" alt="">
+                </li>
+                <li>
+                    <img src="/6.e96dcfff.jpg" alt="">
+                </li>
+                <li>
+                    <img src="/7.2d66e3ed.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <footer class="footer">
+            
+        </footer>
+    </div>
+</body>
+
+</html>
