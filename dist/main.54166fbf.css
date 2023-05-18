@@ -433,5 +433,23 @@ h2 {
   height: 550px;
   background-color: black;
 }
+.footer .cs_center {
+  padding-top: 80px;
+  margin-left: 100px;
+  color: white;
+}
+.footer .cs_center p:nth-child(1) {
+  font-weight: bold;
+  font-size: 20px;
+}
+.footer .cs_center p:nth-child(2) {
+  font-size: 30px;
+  color: #FD8234;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+.footer .cs_center p:nth-child(3) {
+  font-size: 18px;
+}
 
 /*# sourceMappingURL=/main.54166fbf.css.map */
