@@ -57,7 +57,7 @@
                 $(".dot").removeClass("active");
                 $("#dot" + index).addClass("active");
                 bannerCurrentIndex = index;
-                
+
             }
 
             $('#mainPrevButton').click(function () {
@@ -132,6 +132,14 @@
             }
 
 
+            $(".footer_person").click(function () {
+                $(".fa-chevron-down").toggle();
+                $(".fa-chevron-up").toggle();
+                $(".footer_person_info").toggle();
+            });
+
+
+
             slideContainer.addEventListener("mousedown", handleDragStart);
             slideContainer.addEventListener("mouseup", handleDragEnd);
             slideContainer.addEventListener("mouseenter", stopAutoSlide);
@@ -151,13 +159,13 @@
 </head>
 
 <body>
-    <div class="wrap">
-        <header class="header">
+    <header class="header">
+        <div class="header_container">
             <div class="logo">
                 <img src="./img/1962.png" alt="">
             </div>
             <div class="lnb">
-                <div>shop</div>
+                <div><a href="./subpage.html">shop</a></div>
                 <div>our story</div>
                 <div>special project</div>
                 <div>support</div>
@@ -180,7 +188,9 @@
                     <i class="fas fa-shopping-cart"></i>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
+    <div class="wrap">
         <div class="main_visual">
             <img src="./img/109.jpg" alt="" style="left: 0">
             <img src="./img/114.jpg" alt="" style="left: 1420px">
@@ -276,14 +286,14 @@
                 <h2>일광전구 브랜드 스토리</h2>
                 <h3>We Make Light</h3>
                 <h4>
-                    백열전구에 대한 신념을 바탕으로 오래된 빛에 디자인을 더해<br/>
-                    새로운 제품으로 만들어나가는 도전을 계속합니다. <br/>
-                    <br/>
-                    반세기 동안 백열전구를 비롯한 다양한 전구들을 다루며<br/>
-                    각자의 빛에는 알맞은 쓰임이 있다는 사실을 알게 되었습니다.<br/> 
-                    <br/>
-                    장인기업으로서 빛에대한 노하우를 갖고있는 일광전구는 아름다운 빛을 올바르게 사용하며<br/>
-                    가치있는 자신의 삶을 꾸어가는 지혜를 전하는 길잡이가 되고자 합니다.<br/>
+                    백열전구에 대한 신념을 바탕으로 오래된 빛에 디자인을 더해<br />
+                    새로운 제품으로 만들어나가는 도전을 계속합니다. <br />
+                    <br />
+                    반세기 동안 백열전구를 비롯한 다양한 전구들을 다루며<br />
+                    각자의 빛에는 알맞은 쓰임이 있다는 사실을 알게 되었습니다.<br />
+                    <br />
+                    장인기업으로서 빛에대한 노하우를 갖고있는 일광전구는 아름다운 빛을 올바르게 사용하며<br />
+                    가치있는 자신의 삶을 꾸어가는 지혜를 전하는 길잡이가 되고자 합니다.<br />
                 </h4>
                 <div class="detail_btn">
                     자세히 보기
@@ -321,13 +331,62 @@
                 </li>
             </ul>
         </div>
-        <footer class="footer">
+
+    </div>
+    <footer class="footer">
+        <div class="footer_container">
             <div class="cs_center">
                 <p>CS CENTER</p>
                 <P>053-581-1079</P>
                 <P>08:00~17:00 주말 및 공휴일 휴무</P>
             </div>
-        </footer>
+            <div class="footer_logo">
+                <img src="./img/1962-1.png" alt="">
+            </div>
+            <div class="insta_icon">
+                <img src="./img/insta.png" alt="">
+            </div>
+            <ul class="footer_info">
+                <p>INFO</p>
+                <br>
+                <li>공지사항</li>
+                <li>자주 묻는 질문</li>
+                <li>이용약관</li>
+                <li>개인정보취급방침</li>
+            </ul>
+            <ul class="footer_support">
+                <p>SUPPORT</p>
+                <br>
+                <li>제품 가이드</li>
+                <li>뉴스</li>
+                <li>브로슈어</li>
+            </ul>
+            <ul class="footer_contact">
+                <p>CONTACT</p>
+                <br>
+                <li>문의하기</li>
+                <li>매장안내</li>
+            </ul>
+            <div class="footer_person">
+                (주)일광 사업자 정보
+                <i class="fas fa-chevron-down" style="color: #ffffff;"></i>
+                <i class="fas fa-chevron-up" style="color: #ffffff;"></i>
+            </div>
+            <div class="footer_person_info">
+                일광로틱 | 대표 김홍도 | 사업자등록번호 510-05-40260 [사업자정보확인]<br />
+                통신판매신고번호 2013-경북성주-34호<br />
+                경상북도 성주군 선남면 문방1길 1 | 전화 053-581-1079<br />
+                팩스 053-581-6122 | 개인정보책임자 김홍도
+            </div>
+        </div>
+    </footer>
+    <div class="btn">
+        <div class="history_btn">
+            <img src="./img/KakaoTalk_-1.png" alt="">
+        </div>
+        <div class="top_btn">
+            <a href="#"><i class="fas fa-chevron-up" style="color: #ffffff;"></i></a>
+        </div>
     </div>
 </body>
 

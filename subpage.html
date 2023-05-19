@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/sub.scss">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var imgItems = document.querySelectorAll('.category_img li');
+    var textItems = document.querySelectorAll('.category_text li');
+
+    imgItems.forEach(function(item, index) {
+        item.addEventListener('mouseover', function() {
+            textItems[index].classList.add('hovered');
+            imgItems[index].classList.add('hovered');
+        });
+        item.addEventListener('mouseout', function() {
+            textItems[index].classList.remove('hovered');
+            imgItems[index].classList.remove('hovered');
+        });
+    });
+
+    textItems.forEach(function(item, index) {
+        item.addEventListener('mouseover', function() {
+            imgItems[index].classList.add('hovered');
+            textItems[index].classList.add('hovered');
+        });
+        item.addEventListener('mouseout', function() {
+            imgItems[index].classList.remove('hovered');
+            textItems[index].classList.remove('hovered');
+        });
+    });
+
+    $(".footer_person").click(function () {
+                $(".fa-chevron-down").toggle();
+                $(".fa-chevron-up").toggle();
+                $(".footer_person_info").toggle();
+            });
+
+});
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header_container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./img/1962.png" alt="">
+                </a>
+            </div>
+            <div class="lnb">
+                <div>shop</div>
+                <div>our story</div>
+                <div>special project</div>
+                <div>support</div>
+                <div>contact</div>
+            </div>
+            <div class="gnb">
+                <div class="search-container">
+                    <input type="search" class="search">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="login">
+                    <i class="fas fa-sign-in-alt"></i>
+                </div>
+                <div class="mypage">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="path">
+        <div><a href="./index.html">home</a></div>
+        <div>></div>
+        <div>shop</div>
+        <div>></div>
+        <div>all</div>
+    </div>
+    <div class="category">
+        <ul class="category_img">
+            <li>A</li>
+            <li><img src="./img/20230420_142553.png" alt=""></li>
+            <li><img src="./img/플로어.png" alt=""></li>
+            <li><img src="./img/에셋-62.png" alt=""></li>
+            <li><img src="./img/에셋-63.png" alt=""></li>
+            <li><img src="./img/2023-04-21 17 59 41.png" alt=""></li>
+            <li><img src="./img/three.png" alt=""></li>
+            <li><img src="./img/garden.png" alt=""></li>
+            <li><img src="./img/에셋-66.png" alt=""></li>
+            <li><img src="./img/sanup.png" alt=""></li>
+            <li><img src="./img/crupt.png" alt=""></li>
+            <li><img src="./img/led.png" alt=""></li>
+        </ul>
+        <ul class="category_text">
+            <li>ALL</li>
+            <li>IK 테이블 스탠드</li>
+            <li>IK 플로어 스탠드</li>
+            <li>IK 팬던트</li>
+            <li>클래식 전구</li>
+            <li>장식용 전구</li>
+            <li>삼파장 전구</li>
+            <li>가드닝 전구</li>
+            <li>할로겐 전구</li>
+            <li>산업용 전구</li>
+            <li>크립톤 전구</li>
+            <li>LED 전구</li>
+        </ul>
+    </div>
+    <div class="main">
+        <h3>ALL</h3>
+        <div class="main_container">
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+            <div class="main_box">
+                <img src="" alt="">
+                <div class="textbox"></div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="cs_center">
+                <p>CS CENTER</p>
+                <P>053-581-1079</P>
+                <P>08:00~17:00 주말 및 공휴일 휴무</P>
+            </div>
+            <div class="footer_logo">
+                <img src="./img/1962-1.png" alt="">
+            </div>
+            <div class="insta_icon">
+                <img src="./img/insta.png" alt="">
+            </div>
+            <ul class="footer_info">
+                <p>INFO</p>
+                <br>
+                <li>공지사항</li>
+                <li>자주 묻는 질문</li>
+                <li>이용약관</li>
+                <li>개인정보취급방침</li>
+            </ul>
+            <ul class="footer_support">
+                <p>SUPPORT</p>
+                <br>
+                <li>제품 가이드</li>
+                <li>뉴스</li>
+                <li>브로슈어</li>
+            </ul>
+            <ul class="footer_contact">
+                <p>CONTACT</p>
+                <br>
+                <li>문의하기</li>
+                <li>매장안내</li>
+            </ul>
+            <div class="footer_person">
+                (주)일광 사업자 정보
+                <i class="fas fa-chevron-down" style="color: #ffffff;"></i>
+                <i class="fas fa-chevron-up" style="color: #ffffff;"></i>
+            </div>
+            <div class="footer_person_info">
+                일광로틱 | 대표 김홍도 | 사업자등록번호 510-05-40260 [사업자정보확인]<br/>
+                통신판매신고번호 2013-경북성주-34호<br/>
+                경상북도 성주군 선남면 문방1길 1 | 전화 053-581-1079<br/>
+                팩스 053-581-6122 | 개인정보책임자 김홍도
+            </div>
+        </div>
+    </footer>
+    <div class="btn">
+        <div class="history_btn">
+            <img src="./img/KakaoTalk_-1.png" alt="">
+        </div>
+        <div class="top_btn">
+           <a href="#"><i class="fas fa-chevron-up" style="color: #ffffff;"></i></a> 
+        </div>
+    </div>
+</body>
+
+</html>

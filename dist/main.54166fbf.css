@@ -8,6 +8,11 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 h2 {
   margin-top: 75px;
   text-align: center;
@@ -23,6 +28,7 @@ h2 {
 }
 
 .header {
+  width: 100%;
   height: 80px;
   display: flex;
   line-height: 80px;
@@ -34,30 +40,38 @@ h2 {
   top: 0;
   z-index: 9;
 }
-.header .logo {
+.header .header_container {
+  width: 1420px;
+  height: 80px;
+  margin: 0 auto;
+}
+.header .header_container .logo {
   width: 220px;
   height: 80px;
   text-align: center;
+  float: left;
 }
-.header .logo img {
+.header .header_container .logo img {
   height: 80px;
 }
-.header .lnb {
+.header .header_container .lnb {
   width: 740px;
   height: 80px;
   display: flex;
   justify-content: space-around;
+  float: left;
 }
-.header .gnb {
+.header .header_container .gnb {
   width: 460px;
   display: flex;
   justify-content: flex-end;
+  float: left;
 }
-.header .gnb .search-container {
+.header .header_container .gnb .search-container {
   position: relative;
   display: inline-block;
 }
-.header .gnb .search {
+.header .header_container .gnb .search {
   width: 160px;
   height: 25px;
   background-color: #FD8234;
@@ -69,7 +83,7 @@ h2 {
   color: white;
   font-family: "Poppins", sans-serif;
 }
-.header .gnb .search-button {
+.header .header_container .gnb .search-button {
   position: absolute;
   top: 2px;
   right: 22px;
@@ -80,23 +94,23 @@ h2 {
   cursor: pointer;
   padding: 0 10px;
 }
-.header .gnb .fas.fa-search {
+.header .header_container .gnb .fas.fa-search {
   color: white;
 }
-.header .gnb .search::-webkit-search-cancel-button {
+.header .header_container .gnb .search::-webkit-search-cancel-button {
   display: none;
 }
-.header .gnb .login {
+.header .header_container .gnb .login {
   width: 25px;
   height: 25px;
   margin-right: 20px;
 }
-.header .gnb .mypage {
+.header .header_container .gnb .mypage {
   width: 25px;
   height: 25px;
   margin-right: 20px;
 }
-.header .gnb .cart {
+.header .header_container .gnb .cart {
   width: 25px;
   height: 25px;
   margin-right: 25px;
@@ -429,27 +443,134 @@ h2 {
 }
 
 .footer {
-  width: 1420px;
+  width: 100%;
   height: 550px;
   background-color: black;
 }
-.footer .cs_center {
+.footer .footer_container {
+  width: 1420px;
+  height: 550px;
+  margin: 0 auto;
+  position: relative;
+}
+.footer .footer_container .cs_center {
   padding-top: 80px;
   margin-left: 100px;
   color: white;
 }
-.footer .cs_center p:nth-child(1) {
+.footer .footer_container .cs_center p:nth-child(1) {
   font-weight: bold;
   font-size: 20px;
 }
-.footer .cs_center p:nth-child(2) {
+.footer .footer_container .cs_center p:nth-child(2) {
   font-size: 30px;
   color: #FD8234;
   font-weight: bold;
   font-family: "Poppins", sans-serif;
 }
-.footer .cs_center p:nth-child(3) {
+.footer .footer_container .cs_center p:nth-child(3) {
   font-size: 18px;
+}
+.footer .footer_container .footer_logo {
+  width: 116px;
+  height: 135px;
+  position: absolute;
+  left: 100px;
+  bottom: 70px;
+}
+.footer .footer_container .footer_logo img {
+  width: 100%;
+  height: 100%;
+}
+.footer .footer_container .insta_icon {
+  position: absolute;
+  top: 72px;
+  right: 100px;
+}
+.footer .footer_container .insta_icon img {
+  width: 40px;
+  height: 40px;
+}
+.footer .footer_container .footer_info {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  right: 330px;
+}
+.footer .footer_container .footer_info p {
+  font-size: 16px;
+}
+.footer .footer_container .footer_info li {
+  line-height: 24px;
+  font-size: 13px;
+}
+.footer .footer_container .footer_support {
+  color: white;
+  position: absolute;
+  right: 215px;
+  font-weight: bold;
+}
+.footer .footer_container .footer_support p {
+  font-size: 16px;
+}
+.footer .footer_container .footer_support li {
+  line-height: 24px;
+  font-size: 13px;
+}
+.footer .footer_container .footer_contact {
+  color: white;
+  position: absolute;
+  right: 100px;
+  font-weight: bold;
+}
+.footer .footer_container .footer_contact p {
+  color: #f8f8f8;
+  font-size: 16px;
+}
+.footer .footer_container .footer_contact li {
+  line-height: 24px;
+  font-size: 13px;
+}
+.footer .footer_container .footer_person {
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  right: 310px;
+  top: 360px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.footer .footer_container i {
+  cursor: pointer;
+}
+.footer .footer_container .fa-chevron-up {
+  display: none;
+}
+.footer .footer_container .footer_person_info {
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  right: 44px;
+  top: 387px;
+  display: none;
+}
+
+.btn {
+  width: 45px;
+  height: 120px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+.btn .top_btn {
+  margin-top: 20px;
+  border-radius: 100%;
+  background-color: #000;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 25px;
 }
 
 /*# sourceMappingURL=/main.54166fbf.css.map */
