@@ -39,6 +39,14 @@
       }
     });
   });
+  $(document).ready(function () {
+    $(".lnb > div:first-child").mouseenter(function () {
+      $(".lnb .lnb_menu ul").css('top', '0');
+    });
+    $(".lnb .lnb_menu").mouseleave(function () {
+      $(".lnb .lnb_menu ul").css('top', '-853px');
+    });
+  });
   function bannerPlay() {
     clearInterval(bannerAuto); // 추가: 이전 setInterval을 명확하게 제거
     bannerAuto = setInterval(function () {
@@ -145,6 +153,22 @@
                 <div>special project</div>
                 <div>support</div>
                 <div>contact</div>
+                <div class="lnb_menu">
+                    <ul>
+                        <li>NEW</li>
+                        <li>IK 테이블 스탠드</li>
+                        <li>IK 플로어 스탠드</li>
+                        <li>IK 팬던트</li>
+                        <li>클래식전구</li>
+                        <li>장식용전구</li>
+                        <li>삼파장전구</li>
+                        <li>가드닝전구</li>
+                        <li>할로겐전구</li>
+                        <li>산업용전구</li>
+                        <li>크립톤전구</li>
+                        <li>LED전구</li>
+                    </ul>
+                </div>
             </div>
             <div class="gnb">
                 <div class="search-container">
