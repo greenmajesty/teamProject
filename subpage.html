@@ -9,51 +9,8 @@
     <link rel="stylesheet" href="./css/sub.scss">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var imgItems = document.querySelectorAll('.category_img li');
-            var textItems = document.querySelectorAll('.category_text li');
-
-            $(function () {
-                $(window).scroll(function () {
-                    if ($(window).scrollTop() >= 80) {
-                        $('.header').addClass('fixed')
-                    } else {
-                        $('.header').removeClass('fixed')
-                    }
-                })
-            })
-
-            imgItems.forEach(function (item, index) {
-                item.addEventListener('mouseover', function () {
-                    textItems[index].classList.add('hovered');
-                    imgItems[index].classList.add('hovered');
-                });
-                item.addEventListener('mouseout', function () {
-                    textItems[index].classList.remove('hovered');
-                    imgItems[index].classList.remove('hovered');
-                });
-            });
-
-            textItems.forEach(function (item, index) {
-                item.addEventListener('mouseover', function () {
-                    imgItems[index].classList.add('hovered');
-                    textItems[index].classList.add('hovered');
-                });
-                item.addEventListener('mouseout', function () {
-                    imgItems[index].classList.remove('hovered');
-                    textItems[index].classList.remove('hovered');
-                });
-            });
-
-            $(".footer_person").click(function () {
-                $(".fa-chevron-down").toggle();
-                $(".fa-chevron-up").toggle();
-                $(".footer_person_info").toggle();
-            });
-
-        });
-    </script>
+    <script src="./js/product_data.js" defer></script>
+    <script src="./js/sub.js" type="module" defer></script>
 </head>
 
 <body>
@@ -130,64 +87,6 @@
     <div class="main">
         <h3>ALL</h3>
         <div class="main_container">
-            <div class="main_box">
-                <div class="best">BEST</div>
-                <div class="deliver">당일배송</div>
-                <a href="./detail.html">
-                    <img src="./img/MAGRITTE-1.png" alt="">
-                </a>
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <div class="best">BEST</div>
-                <div class="deliver">당일배송</div>
-                <img src="./img/SNOWMAN-1.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <div class="best">BEST</div>
-                <div class="deliver">당일배송</div>
-                <img src="./img/sub-3.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <div class="best">BEST</div>
-                <div class="deliver">당일배송</div>
-                <img src="./img/sub-4.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <img src="./img/sub-5.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <img src="./img/sub-11.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <img src="./img/sub04.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <img src="./img/sub-9.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <img src="./img/sub-7.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <img src="./img/sub-1.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <img src="./img/sub-10.png" alt="">
-                <div class="textbox"></div>
-            </div>
-            <div class="main_box">
-                <img src="./img/sub-12.png" alt="">
-                <div class="textbox"></div>
-            </div>
         </div>
         <div class="pagenation">
             <div>

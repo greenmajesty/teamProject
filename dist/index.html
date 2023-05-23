@@ -9,136 +9,7 @@
     <link rel="stylesheet" href="/main.54166fbf.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-    <script>document.addEventListener('DOMContentLoaded', function () {
-  var bannerImg = $('.main_visual img');
-  var bannerImgCount = bannerImg.length;
-  var bannerImageWidth = 1420;
-  var slides = document.querySelectorAll(".slide");
-  var slideContainer = document.querySelector(".new_arrival_contents");
-  var progressBar = document.querySelector(".progress");
-  var prevSlideButton = document.querySelector('#prevSlide');
-  var nextSlideButton = document.querySelector('#nextSlide');
-  var imageElements = document.querySelectorAll('.slide img');
-  var bannerAuto;
-  var bannerCurrentIndex = 0;
-  var slideIndex = 0;
-  var startX;
-  var distance;
-  var autoSlide;
-  imageElements.forEach(function (img) {
-    img.addEventListener('dragstart', function (e) {
-      e.preventDefault();
-    });
-  });
-  $(function () {
-    $(window).scroll(function () {
-      if ($(window).scrollTop() >= 80) {
-        $('.header').addClass('fixed');
-      } else {
-        $('.header').removeClass('fixed');
-      }
-    });
-  });
-  $(document).ready(function () {
-    $(".lnb > div:first-child").mouseenter(function () {
-      $(".lnb .lnb_menu ul").css('top', '0');
-    });
-    $(".lnb .lnb_menu").mouseleave(function () {
-      $(".lnb .lnb_menu ul").css('top', '-853px');
-    });
-  });
-  function bannerPlay() {
-    clearInterval(bannerAuto); // 추가: 이전 setInterval을 명확하게 제거
-    bannerAuto = setInterval(function () {
-      updateSlide((bannerCurrentIndex + 1) % bannerImgCount);
-    }, 2000);
-  }
-  function updateSlide(index) {
-    bannerImg.each(function (i) {
-      $(this).css('left', (i - index) * bannerImageWidth + 'px');
-    });
-    $(".dot").removeClass("active");
-    $("#dot" + index).addClass("active");
-    bannerCurrentIndex = index;
-  }
-  $('#mainPrevButton').click(function () {
-    clearInterval(bannerAuto);
-    updateSlide((bannerCurrentIndex - 1 + bannerImgCount) % bannerImgCount);
-    bannerPlay();
-  });
-  $('#mainNextButton').click(function () {
-    clearInterval(bannerAuto);
-    updateSlide((bannerCurrentIndex + 1) % bannerImgCount);
-    bannerPlay();
-  });
-  $('.main_visual').hover(function () {
-    clearInterval(bannerAuto);
-  }, function () {
-    bannerPlay();
-  });
-  $(".dot").each(function (index) {
-    $(this).click(function () {
-      clearInterval(bannerAuto);
-      updateSlide(index);
-      bannerPlay();
-    });
-  });
-  bannerPlay();
-  function updateProgressBar() {
-    var progressPercent = slideIndex / slides.length * 100;
-    document.querySelector('.progress').style.left = "".concat(progressPercent, "%");
-  }
-  function handleDragStart(e) {
-    startX = e.clientX;
-  }
-  function handleDragEnd(e) {
-    distance = startX - e.clientX;
-    if (distance > 0) {
-      showNextSlide();
-    } else if (distance < 0) {
-      showPrevSlide();
-    }
-  }
-  function showPrevSlide() {
-    slideIndex--;
-    if (slideIndex < 0) {
-      slideIndex = slides.length - 1;
-    }
-    slideContainer.style.transform = "translateX(".concat(-slideIndex * slides[0].clientWidth, "px)");
-    updateProgressBar();
-  }
-  function showNextSlide() {
-    slideIndex++;
-    if (slideIndex >= slides.length) {
-      slideIndex = 0;
-    }
-    slideContainer.style.transform = "translateX(".concat(-slideIndex * slides[0].clientWidth, "px)");
-    updateProgressBar();
-  }
-  function startAutoSlide() {
-    autoSlide = setInterval(showNextSlide, 2000);
-  }
-  function stopAutoSlide() {
-    clearInterval(autoSlide);
-  }
-  $(".footer_person").click(function () {
-    $(".fa-chevron-down").toggle();
-    $(".fa-chevron-up").toggle();
-    $(".footer_person_info").toggle();
-  });
-  slideContainer.addEventListener("mousedown", handleDragStart);
-  slideContainer.addEventListener("mouseup", handleDragEnd);
-  slideContainer.addEventListener("mouseenter", stopAutoSlide);
-  slideContainer.addEventListener("mouseleave", startAutoSlide);
-  document.getElementById("prevSlide").addEventListener("click", showPrevSlide);
-  document.getElementById("nextSlide").addEventListener("click", showNextSlide);
-  prevSlideButton.addEventListener("mouseenter", stopAutoSlide);
-  nextSlideButton.addEventListener("mouseenter", stopAutoSlide);
-  prevSlideButton.addEventListener("mouseleave", startAutoSlide);
-  nextSlideButton.addEventListener("mouseleave", startAutoSlide);
-  startAutoSlide();
-  updateProgressBar();
-});</script>
+    <script src="/main.fb6bbcaf.js" defer=""></script>
 <script src="/main.54166fbf.js"></script><script src="/subpage.js"></script></head>
 
 <body>
@@ -306,29 +177,31 @@
             <div class="insta_link">
                 @ilkwanglighting
             </div>
-            <ul class="insta_picture">
-                <li>
-                    <img src="/1.dc197a9a.jpg" alt="">
-                </li>
-                <li>
-                    <img src="/2.3ca6bb44.jpg" alt="">
-                </li>
-                <li>
-                    <img src="/3.a433b89d.jpg" alt="">
-                </li>
-                <li>
-                    <img src="/4.c6d96be5.jpg" alt="">
-                </li>
-                <li>
-                    <img src="/5.689b68fd.jpg" alt="">
-                </li>
-                <li>
-                    <img src="/6.e96dcfff.jpg" alt="">
-                </li>
-                <li>
-                    <img src="/7.2d66e3ed.jpg" alt="">
-                </li>
-            </ul>
+            <div class="rolling">
+                <ul class="insta_picture">
+                    <li>
+                        <img src="/1.dc197a9a.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="/2.3ca6bb44.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="/3.a433b89d.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="/4.c6d96be5.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="/5.689b68fd.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="/6.e96dcfff.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="/7.2d66e3ed.jpg" alt="">
+                    </li>
+                </ul>
+            </div>
         </div>
 
     </div>

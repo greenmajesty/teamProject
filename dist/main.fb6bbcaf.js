@@ -118,26 +118,164 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/main.js":[function(require,module,exports) {
-$(function () {
-  function newAleft() {
-    $('.new_arrival .new_arrival_contents').animate({
-      left: 1180 * -1
-    }, 500, function () {
-      $(this).children('li:first').insertAfter($(this).children('li:last'));
-      $(this).css('left', 0);
-      state = false;
-    });
-  }
-  function newAright() {
-    $('new_arriaval .new_arrival_contents li:last').insertBefore($('new_arriaval .new_arrival_contents li:first'));
-    $('new_arriaval .new_arrival_contents').css('left', 1180 * -1);
-    $('new_arriaval .new_arrival_contents').animate({
-      left: 0
-    }, 500, function () {
-      state = false;
-    });
-  }
+var bannerImg = $('.main_visual img');
+var bannerImgCount = bannerImg.length;
+var bannerImageWidth = 1420;
+var slides = document.querySelectorAll(".slide");
+var slideContainer = document.querySelector(".new_arrival_contents");
+var progressBar = document.querySelector(".progress");
+var prevSlideButton = document.querySelector('#prevSlide');
+var nextSlideButton = document.querySelector('#nextSlide');
+var imageElements = document.querySelectorAll('.slide img');
+var bannerAuto;
+var bannerCurrentIndex = 0;
+var slideIndex = 0;
+var startX;
+var distance;
+var autoSlide;
+imageElements.forEach(function (img) {
+  img.addEventListener('dragstart', function (e) {
+    e.preventDefault();
+  });
 });
+$(function () {
+  $(window).scroll(function () {
+    if ($(window).scrollTop() >= 80) {
+      $('.header').addClass('fixed');
+    } else {
+      $('.header').removeClass('fixed');
+    }
+  });
+});
+$(document).ready(function () {
+  $(".lnb > div:first-child").mouseenter(function () {
+    $(".lnb .lnb_menu ul").css('top', '0');
+  });
+  $(".lnb .lnb_menu").mouseleave(function () {
+    $(".lnb .lnb_menu ul").css('top', '-853px');
+  });
+});
+function bannerPlay() {
+  clearInterval(bannerAuto); // 추가: 이전 setInterval을 명확하게 제거
+  bannerAuto = setInterval(function () {
+    updateSlide((bannerCurrentIndex + 1) % bannerImgCount);
+  }, 2000);
+}
+function updateSlide(index) {
+  bannerImg.each(function (i) {
+    $(this).css('left', (i - index) * bannerImageWidth + 'px');
+  });
+  $(".dot").removeClass("active");
+  $("#dot" + index).addClass("active");
+  bannerCurrentIndex = index;
+}
+$('#mainPrevButton').click(function () {
+  clearInterval(bannerAuto);
+  updateSlide((bannerCurrentIndex - 1 + bannerImgCount) % bannerImgCount);
+  bannerPlay();
+});
+$('#mainNextButton').click(function () {
+  clearInterval(bannerAuto);
+  updateSlide((bannerCurrentIndex + 1) % bannerImgCount);
+  bannerPlay();
+});
+$('.main_visual').hover(function () {
+  clearInterval(bannerAuto);
+}, function () {
+  bannerPlay();
+});
+$(".dot").each(function (index) {
+  $(this).click(function () {
+    clearInterval(bannerAuto);
+    updateSlide(index);
+    bannerPlay();
+  });
+});
+bannerPlay();
+function updateProgressBar() {
+  var progressPercent = slideIndex / slides.length * 100;
+  document.querySelector('.progress').style.left = "".concat(progressPercent, "%");
+}
+function handleDragStart(e) {
+  startX = e.clientX;
+}
+function handleDragEnd(e) {
+  distance = startX - e.clientX;
+  if (distance > 0) {
+    showNextSlide();
+  } else if (distance < 0) {
+    showPrevSlide();
+  }
+}
+function showPrevSlide() {
+  slideIndex--;
+  if (slideIndex < 0) {
+    slideIndex = slides.length - 1;
+  }
+  slideContainer.style.transform = "translateX(".concat(-slideIndex * slides[0].clientWidth, "px)");
+  updateProgressBar();
+}
+function showNextSlide() {
+  slideIndex++;
+  if (slideIndex >= slides.length) {
+    slideIndex = 0;
+  }
+  slideContainer.style.transform = "translateX(".concat(-slideIndex * slides[0].clientWidth, "px)");
+  updateProgressBar();
+}
+function startAutoSlide() {
+  autoSlide = setInterval(showNextSlide, 2000);
+}
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+}
+$(".footer_person").click(function () {
+  $(".fa-chevron-down").toggle();
+  $(".fa-chevron-up").toggle();
+  $(".footer_person_info").toggle();
+});
+$(window).on('load', function () {
+  setFlowBanner();
+});
+function setFlowBanner() {
+  var $wrap = $('.rolling');
+  var $list = $('.rolling .insta_picture');
+  var wrapWidth = $wrap.width();
+  var listWidth = $list.width();
+  var speed = 92; //1초에 몇픽셀 이동하는지 설정
+
+  //리스트 복제
+  var $clone = $list.clone();
+  $wrap.append($clone);
+  flowBannerAct();
+
+  //배너 실행 함수
+  function flowBannerAct() {
+    //무한 반복을 위해 리스트를 복제 후 배너에 추가
+    if (listWidth < wrapWidth) {
+      var listCount = Math.ceil(wrapWidth * 2 / listWidth);
+      for (var i = 2; i < listCount; i++) {
+        $clone = $clone.clone();
+        $wrap.append($clone);
+      }
+    }
+    $wrap.find('.insta_picture').css({
+      'animation': "".concat(listWidth / speed, "s linear infinite flowRolling")
+    });
+  }
+}
+slideContainer.addEventListener("mousedown", handleDragStart);
+slideContainer.addEventListener("mouseup", handleDragEnd);
+slideContainer.addEventListener("mouseenter", stopAutoSlide);
+slideContainer.addEventListener("mouseleave", startAutoSlide);
+document.getElementById("prevSlide").addEventListener("click", showPrevSlide);
+document.getElementById("nextSlide").addEventListener("click", showNextSlide);
+prevSlideButton.addEventListener("mouseenter", stopAutoSlide);
+nextSlideButton.addEventListener("mouseenter", stopAutoSlide);
+prevSlideButton.addEventListener("mouseleave", startAutoSlide);
+nextSlideButton.addEventListener("mouseleave", startAutoSlide);
+startAutoSlide();
+updateProgressBar();
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -163,7 +301,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54216" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57251" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
