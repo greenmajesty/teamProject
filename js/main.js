@@ -1,4 +1,5 @@
 
+        
         const bannerImg = $('.main_visual img')
         const bannerImgCount = bannerImg.length;
         const bannerImageWidth = 1420;
@@ -14,6 +15,8 @@
         let startX;
         let distance;
         let autoSlide;
+        
+
 
         imageElements.forEach((img) => {
             img.addEventListener('dragstart', (e) => {
