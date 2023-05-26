@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h2 {
+  margin-top: 75px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.wrap {
+  width: 1420px;
+  height: 4300px;
+  margin: 0 auto;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 9;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  line-height: 80px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+.header .header_container {
+  width: 1420px;
+  height: 80px;
+  margin: 0 auto;
+}
+.header .header_container .logo {
+  width: 220px;
+  height: 80px;
+  text-align: center;
+  float: left;
+}
+.header .header_container .logo img {
+  height: 80px;
+}
+.header .header_container .lnb {
+  width: 740px;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  float: left;
+}
+.header .header_container .gnb {
+  width: 460px;
+  display: flex;
+  justify-content: flex-end;
+  float: left;
+}
+.header .header_container .gnb .search-container {
+  position: relative;
+  display: inline-block;
+}
+.header .header_container .gnb .search {
+  width: 160px;
+  height: 25px;
+  background-color: #FD8234;
+  border-radius: 15px;
+  margin-top: 30px;
+  margin-right: 22px;
+  border: none;
+  outline: none;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+.header .header_container .gnb .search-button {
+  position: absolute;
+  top: 2px;
+  right: 22px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0 10px;
+}
+.header .header_container .gnb .fas.fa-search {
+  color: white;
+}
+.header .header_container .gnb .search::-webkit-search-cancel-button {
+  display: none;
+}
+.header .header_container .gnb .login {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+.header .header_container .gnb .mypage {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+.header .header_container .gnb .cart {
+  width: 25px;
+  height: 25px;
+  margin-right: 25px;
+}
+
+.main {
+  width: 1420px;
+  height: 1950px;
+  margin: 0 auto;
+}
+.main .main_container {
+  display: flex;
+}
+.main .main_container .left {
+  width: 820px;
+}
+.main .main_container .left .main_img {
+  width: 820px;
+  height: 820px;
+}
+.main .main_container .left .left_menu {
+  width: 820px;
+  height: 85px;
+  border: 1px solid #707070;
+}
+.main .main_container .left .left_menu div {
+  float: left;
+  width: 205px;
+  height: 85px;
+  line-height: 85px;
+  text-align: center;
+  font-size: 18px;
+  color: #707070;
+}
+.main .main_container .left .left_menu .focus {
+  border-bottom: 5px solid black;
+}
+.main .main_container .right {
+  width: 600px;
+  border: 1px solid #707070;
+}
+.main .main_container .right .detail_title {
+  width: 600px;
+  height: 215px;
+  border-bottom: 1px solid #707070;
+  box-sizing: border-box;
+}
+.main .main_container .right .detail_color {
+  width: 600px;
+  height: 60px;
+  border-bottom: 1px solid #707070;
+  box-sizing: border-box;
+}
+.main .main_container .right .detail_additional {
+  width: 600px;
+  height: 285px;
+  border-bottom: 1px solid #707070;
+  box-sizing: border-box;
+}
+.main .main_container .right .detail_card {
+  width: 600px;
+  height: 95px;
+  border-bottom: 1px solid #707070;
+  box-sizing: border-box;
+}
+.main .main_container .right .detail_price {
+  width: 600px;
+  height: 85px;
+  border-bottom: 1px solid #707070;
+  box-sizing: border-box;
+}
+.main .main_container .right .detail_btn {
+  width: 600px;
+  height: 85px;
+  border-bottom: 1px solid #707070;
+  box-sizing: border-box;
+}
+.main .main_container .right .detail_guide {
+  width: 600px;
+  height: 85px;
+  border-bottom: 1px solid #707070;
+  box-sizing: border-box;
+}
+.main .main_container .right .detail_guide2 {
+  width: 600px;
+  height: 85px;
+  border-bottom: 1px solid #707070;
+  box-sizing: border-box;
+}
+.main .main_container .right .detail_guide3 {
+  width: 600px;
+  height: 85px;
+  border-bottom: 1px solid #707070;
+  box-sizing: border-box;
+}
+
+.footer {
+  width: 100%;
+  height: 550px;
+  background-color: black;
+}
+.footer .footer_container {
+  width: 1420px;
+  height: 550px;
+  margin: 0 auto;
+  position: relative;
+}
+.footer .footer_container .cs_center {
+  padding-top: 80px;
+  margin-left: 100px;
+  color: white;
+}
+.footer .footer_container .cs_center p:nth-child(1) {
+  font-weight: bold;
+  font-size: 20px;
+}
+.footer .footer_container .cs_center p:nth-child(2) {
+  font-size: 30px;
+  color: #FD8234;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+.footer .footer_container .cs_center p:nth-child(3) {
+  font-size: 18px;
+}
+.footer .footer_container .footer_logo {
+  width: 116px;
+  height: 135px;
+  position: absolute;
+  left: 100px;
+  bottom: 70px;
+}
+.footer .footer_container .footer_logo img {
+  width: 100%;
+  height: 100%;
+}
+.footer .footer_container .insta_icon {
+  position: absolute;
+  top: 72px;
+  right: 100px;
+}
+.footer .footer_container .insta_icon img {
+  width: 40px;
+  height: 40px;
+}
+.footer .footer_container .footer_info {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  right: 330px;
+}
+.footer .footer_container .footer_info p {
+  font-size: 16px;
+}
+.footer .footer_container .footer_info li {
+  line-height: 24px;
+  font-size: 13px;
+}
+.footer .footer_container .footer_support {
+  color: white;
+  position: absolute;
+  right: 215px;
+  font-weight: bold;
+}
+.footer .footer_container .footer_support p {
+  font-size: 16px;
+}
+.footer .footer_container .footer_support li {
+  line-height: 24px;
+  font-size: 13px;
+}
+.footer .footer_container .footer_contact {
+  color: white;
+  position: absolute;
+  right: 100px;
+  font-weight: bold;
+}
+.footer .footer_container .footer_contact p {
+  color: #f8f8f8;
+  font-size: 16px;
+}
+.footer .footer_container .footer_contact li {
+  line-height: 24px;
+  font-size: 13px;
+}
+.footer .footer_container .footer_person {
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  right: 310px;
+  top: 360px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.footer .footer_container i {
+  cursor: pointer;
+}
+.footer .footer_container .fa-chevron-up {
+  display: none;
+}
+.footer .footer_container .footer_person_info {
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  right: 44px;
+  top: 387px;
+  display: none;
+}
+
+.btn {
+  width: 45px;
+  height: 120px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+.btn .top_btn {
+  margin-top: 20px;
+  border-radius: 100%;
+  background-color: #000;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 25px;
+}/*# sourceMappingURL=detail.css.map */
