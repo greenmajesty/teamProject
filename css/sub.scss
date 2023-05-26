@@ -83,6 +83,9 @@ h2 {
                         border-left: 1px solid #a2a2a2;
                         padding-left: 70px;
                         font-size: 14px;
+                        a{
+                            display: block;
+                        }
                         &:hover{
                             background-color: #efe8da;
                             cursor: pointer;
@@ -102,7 +105,8 @@ h2 {
                     box-sizing: border-box;
                     transition: 0.3s;
                     overflow: hidden;
-                    @include size (1420px, 70px);
+                    width: 1420px;
+                    height: 0;
                     &:hover{
                         background-color: #efe8da;
                     }
