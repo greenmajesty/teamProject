@@ -349,69 +349,54 @@ h2 {
 .best {
     @include size (1420px, 650px);
     margin-top: 50px;
-
-    .best_container {
+    .swiper-container{
         margin: 0 auto;
-        margin-top: 20px;
         width: 1180px;
         height: 458px;
         position: relative;
-
-        ul {
-            li {
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-
-                position: absolute;
-                width: 340px;
-                height: 340px;
-                top: 64px;
-
-                &:nth-child(2) {
-                    top: 0;
-                    left: 280px;
-                    width: 620px;
-                    height: 458px;
-                    z-index: 2;
-                    background-color: white;
-                }
-
-                &:nth-child(3) {
-                    left: 840px;
-                    top: 64px;
-                }
-
-                &:nth-child(4) {
-                    display: none;
-                }
-
-                &:nth-child(5) {
-                    display: none;
-                }
-
-                &:nth-child(6) {
-                    display: none;
-                }
-            }
-        }
-
         i {
             font-size: 60px;
             color: #ccc;
             position: absolute;
-            top: 200px;
+            top: 250px;
         }
-
-        .fa-chevron-right {
-            right: -60px;
+        .fa-chevron-left{
+            top: 190px;
+            left: -70px;
         }
-
-        .fa-chevron-left {
-            left: -60px;
+        .fa-chevron-right{
+            top: 190px;
+            right: -50px;
         }
-
+        .swiper-slide{
+            position: absolute;
+        }
+        .slide1{
+          top: 59px;
+            img{
+                @include size (320px,320px)
+            }
+        }
+        .slide2 {
+            left: 281px;
+            z-index: 3;
+            img{
+                @include size (620px, 458px)
+            }
+        }
+        .slide3{
+            top: 59px;
+            left: 839px;
+            img{
+                @include size (320px,320px)
+            }
+        }
+        .slide4{
+            display: none;
+        }
+        .slide5{
+            display: none;
+        }
     }
 }
 

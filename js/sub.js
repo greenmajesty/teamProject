@@ -58,16 +58,15 @@ $(document).ready(function () {
     });
 
     let currentPage = 1;
-    const itemsPerPage = 12;  // 한 페이지에 표시할 항목의 수
+    const itemsPerPage = 12;  
     
     function createMainBoxes(productData, page) {
         const $mainContainer = $(".main_container");
-        $mainContainer.empty();  // 현재 페이지의 내용을 지웁니다.
+        $mainContainer.empty();  
     
-        const start = (page - 1) * itemsPerPage;  // 시작 인덱스
-        const end = start + itemsPerPage;  // 끝 인덱스
+        const start = (page - 1) * itemsPerPage; 
+        const end = start + itemsPerPage;  
     
-        // 시작과 끝 인덱스 사이의 데이터만 가져옵니다.
         const pageItems = productData.slice(start, end);
         
         for (let i = 0; i < pageItems.length; i++) {

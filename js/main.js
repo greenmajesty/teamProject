@@ -9,13 +9,14 @@
         const prevSlideButton = document.querySelector('#prevSlide')
         const nextSlideButton = document.querySelector('#nextSlide')
         const imageElements = document.querySelectorAll('.slide img');
+
         let bannerAuto;
         let bannerCurrentIndex = 0;
         let slideIndex = 0;
         let startX;
         let distance;
         let autoSlide;
-        
+
 
 
         imageElements.forEach((img) => {
@@ -50,6 +51,8 @@
                 $(".lnb .our_story_menu ul").css('height', '0');
             });
         });
+
+        
 
         function bannerPlay() {
             clearInterval(bannerAuto); // 추가: 이전 setInterval을 명확하게 제거

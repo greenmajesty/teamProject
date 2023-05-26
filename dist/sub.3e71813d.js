@@ -760,16 +760,12 @@ $(document).ready(function () {
     $(".footer_person_info").toggle();
   });
   var currentPage = 1;
-  var itemsPerPage = 12; // 한 페이지에 표시할 항목의 수
-
+  var itemsPerPage = 12;
   function createMainBoxes(productData, page) {
     var $mainContainer = $(".main_container");
-    $mainContainer.empty(); // 현재 페이지의 내용을 지웁니다.
-
-    var start = (page - 1) * itemsPerPage; // 시작 인덱스
-    var end = start + itemsPerPage; // 끝 인덱스
-
-    // 시작과 끝 인덱스 사이의 데이터만 가져옵니다.
+    $mainContainer.empty();
+    var start = (page - 1) * itemsPerPage;
+    var end = start + itemsPerPage;
     var pageItems = productData.slice(start, end);
     for (var i = 0; i < pageItems.length; i++) {
       var product = pageItems[i];
@@ -853,7 +849,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57436" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60639" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

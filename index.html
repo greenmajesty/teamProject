@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/main.scss">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.3.2/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
     <script src="./js/main.js" defer></script>
 </head>
@@ -117,17 +118,30 @@
         </div>
         <div class="best">
             <h2>Best</h2>
-            <div class="best_container">
-                <ul>
-                    <li><img src="./img/123.jpg" alt=""></li>
-                    <li><img src="./img/1234.jpg" alt=""></li>
-                    <li><img src="./img/2134.jpg" alt=""></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                <i class="fas fa-chevron-left"></i>
-                <i class="fas fa-chevron-right"></i>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide1">
+                        <img src="./img/123.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide slide2">
+                        <img src="./img/1234.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide slide3">
+                        <img src="./img/2134.jpg" alt="">
+                    </div>  
+                    <div class="swiper-slide slide4">
+                        <img src="./img/2134.jpg" alt="">
+                    </div>  
+                    <div class="swiper-slide slide5">
+                        <img src="./img/2134.jpg" alt="">
+                    </div>  
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="swiper-button-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
         </div>
         <div class="recommend">

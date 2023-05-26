@@ -585,68 +585,68 @@ const productList = [
       new: true
     },
     {
-      id: "product66",
-      name: "CFL 전구 Six Tube 4-Pin (60w)",
-      price: 12000,
-      src: "./img/1176.jpg",
-      best: true,
-      deliver: false,
-      new: true
-    },
-    {
-      id: "product67",
-      name: "LED 전구 Classic B35 E14 (12.5w)",
-      price: 11000,
-      src: "./img/1177.jpg",
-      best: false,
-      deliver: true,
-      new: false
-    },
-    {
-      id: "product68",
-      name: "산업용전구 MR16 GU10 (150w)",
-      price: 11000,
-      src: "./img/1178.jpg",
-      best: true,
-      deliver: false,
-      new: true
-    },
-    {
-      id: "product69",
-      name: "LED 전구 F-LED TUBE R (28w, E26, Dimmable)",
-      price: 26000,
-      src: "./img/1179.jpg",
-      best: true,
-      deliver: true,
-      new: false
-    },
-    {
-      id: "product70",
-      name: "LED 전구 Classic ST64 E27 (18w)",
-      price: 17000,
-      src: "./img/1180.jpg",
-      best: false,
-      deliver: false,
-      new: true
-    },
-    {
-      id: "product71",
-      name: "할로겐 전구 Capsule GY6.35 (200w)",
-      price: 6500,
-      src: "./img/1181.jpg",
-      best: true,
-      deliver: true,
-      new: false
-    },
-    {
-      id: "product72",
-      name: "LED 전구 Classic A60 E27 (16.5w)",
-      price: 13000,
-      src: "./img/1182.jpg",
-      best: false,
-      deliver: true,
-      new: true
-    }
+  id: "product66",
+  name: "CFL 전구 Six Tube 4-Pin (60w)",
+  price: 12000,
+  src: "./img/1176.jpg",
+  best: true,
+  deliver: false,
+  new: true
+},
+{
+  id: "product67",
+  name: "LED 전구 Classic B35 E14 (12.5w)",
+  price: 11000,
+  src: "./img/1177.jpg",
+  best: false,
+  deliver: true,
+  new: false
+},
+{
+  id: "product68",
+  name: "산업용전구 MR16 GU10 (150w)",
+  price: 11000,
+  src: "./img/1178.jpg",
+  best: true,
+  deliver: false,
+  new: true
+},
+{
+  id: "product69",
+  name: "LED 전구 F-LED TUBE R (28w, E26, Dimmable)",
+  price: 26000,
+  src: "./img/1179.jpg",
+  best: true,
+  deliver: true,
+  new: false
+},
+{
+  id: "product70",
+  name: "LED 전구 Classic ST64 E27 (18w)",
+  price: 17000,
+  src: "./img/1180.jpg",
+  best: false,
+  deliver: false,
+  new: true
+},
+{
+  id: "product71",
+  name: "할로겐 전구 Capsule GY6.35 (200w)",
+  price: 6500,
+  src: "./img/1181.jpg",
+  best: true,
+  deliver: true,
+  new: false
+},
+{
+  id: "product72",
+  name: "LED 전구 Classic A60 E27 (16.5w)",
+  price: 13000,
+  src: "./img/1182.jpg",
+  best: false,
+  deliver: true,
+  new: true
+}
   ];
   
   export default productList
