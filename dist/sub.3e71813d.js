@@ -136,7 +136,7 @@ var productList = [{
   id: "product2",
   name: "IK 시리즈 SNOWMAN22 SOLID Table Stand",
   price: 230000,
-  src: "./js/img/1112.jpg",
+  src: "../img/1112.jpg",
   best: true,
   deliver: true,
   new: false
@@ -176,7 +176,7 @@ var productList = [{
   id: "product7",
   name: "IK 시리즈 MAGRITTE40 Pendant",
   price: 380000,
-  src: "./js/img/1117.jpg",
+  src: "../img/1117.jpg",
   best: false,
   deliver: false,
   new: true
@@ -184,7 +184,7 @@ var productList = [{
   id: "product8",
   name: "IK 시리즈 MAGRITTE40 Pendant",
   price: 380000,
-  src: "./img/1117.jpg",
+  src: "./img/1118.jpg",
   best: false,
   deliver: false,
   new: true
@@ -192,7 +192,7 @@ var productList = [{
   id: "product9",
   name: "클래식전구 ST64 (25w, 40w, E26)",
   price: 6500,
-  src: "./img/1118.jpg",
+  src: "./img/1119.jpg",
   best: false,
   deliver: false,
   new: true
@@ -200,7 +200,7 @@ var productList = [{
   id: "product10",
   name: "장식용전구 S45 (10w, E14)",
   price: 1200,
-  src: "./img/1119.jpg",
+  src: "./img/1120.jpg",
   best: false,
   deliver: false,
   new: true
@@ -208,7 +208,7 @@ var productList = [{
   id: "product11",
   name: "삼파장전구 EL (11w, E26)",
   price: 2700,
-  src: "./img/1120.jpg",
+  src: "./img/1121.jpg",
   best: false,
   deliver: false,
   new: true
@@ -216,7 +216,7 @@ var productList = [{
   id: "product12",
   name: "가드닝전구 LED PG PAR30 (11w, E26, 실내용)",
   price: 20000,
-  src: "./img/1121.jpg",
+  src: "./img/1122.jpg",
   best: false,
   deliver: false,
   new: true
@@ -224,7 +224,7 @@ var productList = [{
   id: "product13",
   name: "할로겐전구 G9 (28w, 42w)",
   price: 2000,
-  src: "./img/1122.jpg",
+  src: "./img/1123.jpg",
   best: false,
   deliver: false,
   new: true
@@ -232,7 +232,7 @@ var productList = [{
   id: "product14",
   name: "산업용전구 IR125 RED(250w, 하드글래스 열전구)",
   price: 6000,
-  src: "./img/1123.jpg",
+  src: "./img/1124.jpg",
   best: false,
   deliver: false,
   new: true
@@ -261,6 +261,22 @@ $(document).ready(function () {
     } else {
       $('.header').removeClass('fixed');
     }
+  });
+  $(document).ready(function () {
+    $(".lnb > div:first-child").mouseenter(function () {
+      $(".lnb .shop_menu ul").css('height', '1000px');
+      $(".lnb .our_story_menu ul").css('height', '0');
+    });
+    $(".lnb .shop_menu").mouseleave(function () {
+      $(".lnb .shop_menu ul").css('height', '0px');
+    });
+    $(".lnb > div:nth-child(2)").mouseenter(function () {
+      $(".lnb .our_story_menu ul").css('height', '80px');
+      $(".lnb .shop_menu ul").css('height', '0px');
+    });
+    $(".lnb .our_story_menu").mouseleave(function () {
+      $(".lnb .our_story_menu ul").css('height', '0');
+    });
   });
   imgItems.forEach(function (item, index) {
     item.addEventListener('mouseover', function () {
@@ -291,7 +307,7 @@ $(document).ready(function () {
     var $mainContainer = $(".main_container");
     for (var i = 0; i < 12 && i < productData.length; i++) {
       var product = productData[i];
-      var $mainBox = $('<div class="main_box"></div>');
+      var $mainBox = $("<a href=\"detail.html?id=".concat(product.id, "\" class=\"main_box\"></a>"));
       if (product.best) {
         $mainBox.append('<div class="best">BEST</div>');
       }
@@ -299,7 +315,10 @@ $(document).ready(function () {
         $mainBox.append('<div class="deliver">당일배송</div>');
       }
       $mainBox.append("<img src=\"".concat(product.src, "\" alt=\"\">"));
-      $mainBox.append('<div class="textbox"></div>');
+      var $textBox = $('<div class="textbox"></div>');
+      $textBox.append("<div class=\"product_name\">".concat(product.name, "</div>"));
+      $textBox.append("<div class=\"product_price\">".concat(product.price, "\uC6D0</div>"));
+      $mainBox.append($textBox);
       $mainContainer.append($mainBox);
     }
   }
@@ -330,7 +349,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55111" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51224" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

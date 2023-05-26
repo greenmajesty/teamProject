@@ -149,10 +149,18 @@ $(function () {
 });
 $(document).ready(function () {
   $(".lnb > div:first-child").mouseenter(function () {
-    $(".lnb .lnb_menu ul").css('top', '0');
+    $(".lnb .shop_menu ul").css('height', '1000px');
+    $(".lnb .our_story_menu ul").css('height', '0');
   });
-  $(".lnb .lnb_menu").mouseleave(function () {
-    $(".lnb .lnb_menu ul").css('top', '-853px');
+  $(".lnb .shop_menu").mouseleave(function () {
+    $(".lnb .shop_menu ul").css('height', '0px');
+  });
+  $(".lnb > div:nth-child(2)").mouseenter(function () {
+    $(".lnb .our_story_menu ul").css('height', '80px');
+    $(".lnb .shop_menu ul").css('height', '0px');
+  });
+  $(".lnb .our_story_menu").mouseleave(function () {
+    $(".lnb .our_story_menu ul").css('height', '0');
   });
 });
 function bannerPlay() {
@@ -301,7 +309,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55111" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51224" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

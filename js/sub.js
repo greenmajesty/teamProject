@@ -11,6 +11,23 @@ $(document).ready(function () {
             $('.header').removeClass('fixed');
         }
     });
+    $(document).ready(function () {
+        $(".lnb > div:first-child").mouseenter(function () {
+            $(".lnb .shop_menu ul").css('height', '1000px');
+            $(".lnb .our_story_menu ul").css('height', '0');
+        });
+        $(".lnb .shop_menu").mouseleave(function () {
+            $(".lnb .shop_menu ul").css('height', '0px');
+        });
+        $(".lnb > div:nth-child(2)").mouseenter(function () {
+            $(".lnb .our_story_menu ul").css('height', '80px');
+            $(".lnb .shop_menu ul").css('height', '0px');
+        });
+        $(".lnb .our_story_menu").mouseleave(function () {
+            $(".lnb .our_story_menu ul").css('height', '0');
+        });
+    });
+
 
     imgItems.forEach(function (item, index) {
         item.addEventListener('mouseover', function () {
@@ -45,8 +62,7 @@ $(document).ready(function () {
     
         for (let i = 0; i < 12 && i < productData.length; i++) {
             const product = productData[i];
-    
-            let $mainBox = $('<div class="main_box"></div>');
+            let $mainBox = $(`<a href="detail.html?id=${product.id}" class="main_box"></a>`);
     
             if(product.best){
                 $mainBox.append('<div class="best">BEST</div>');
@@ -56,7 +72,12 @@ $(document).ready(function () {
             }
     
             $mainBox.append(`<img src="${product.src}" alt="">`);
-            $mainBox.append('<div class="textbox"></div>');
+            
+            let $textBox = $('<div class="textbox"></div>');
+            $textBox.append(`<div class="product_name">${product.name}</div>`);
+            $textBox.append(`<div class="product_price">${product.price}원</div>`);
+            
+            $mainBox.append($textBox);
     
             $mainContainer.append($mainBox);
         }

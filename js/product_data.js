@@ -12,7 +12,7 @@ const productList = [
       id: "product2",
       name: "IK 시리즈 SNOWMAN22 SOLID Table Stand",
       price: 230000,
-      src: "./js/img/1112.jpg",
+      src: "../img/1112.jpg",
       best: true,
       deliver: true,
       new: false
@@ -57,7 +57,7 @@ const productList = [
       id: "product7",
       name: "IK 시리즈 MAGRITTE40 Pendant",
       price: 380000,
-      src: "./js/img/1117.jpg",
+      src: "../img/1117.jpg",
       best: false,
       deliver: false,
       new: true
@@ -66,7 +66,7 @@ const productList = [
       id: "product8",
       name: "IK 시리즈 MAGRITTE40 Pendant",
       price: 380000,
-      src: "./img/1117.jpg",
+      src: "./img/1118.jpg",
       best: false,
       deliver: false,
       new: true
@@ -75,7 +75,7 @@ const productList = [
       id: "product9",
       name: "클래식전구 ST64 (25w, 40w, E26)",
       price: 6500,
-      src: "./img/1118.jpg",
+      src: "./img/1119.jpg",
       best: false,
       deliver: false,
       new: true
@@ -84,7 +84,7 @@ const productList = [
       id: "product10",
       name: "장식용전구 S45 (10w, E14)",
       price: 1200,
-      src: "./img/1119.jpg",
+      src: "./img/1120.jpg",
       best: false,
       deliver: false,
       new: true
@@ -93,7 +93,7 @@ const productList = [
       id: "product11",
       name: "삼파장전구 EL (11w, E26)",
       price: 2700,
-      src: "./img/1120.jpg",
+      src: "./img/1121.jpg",
       best: false,
       deliver: false,
       new: true
@@ -102,7 +102,7 @@ const productList = [
       id: "product12",
       name: "가드닝전구 LED PG PAR30 (11w, E26, 실내용)",
       price: 20000,
-      src: "./img/1121.jpg",
+      src: "./img/1122.jpg",
       best: false,
       deliver: false,
       new: true
@@ -111,7 +111,7 @@ const productList = [
       id: "product13",
       name: "할로겐전구 G9 (28w, 42w)",
       price: 2000,
-      src: "./img/1122.jpg",
+      src: "./img/1123.jpg",
       best: false,
       deliver: false,
       new: true
@@ -120,7 +120,7 @@ const productList = [
       id: "product14",
       name: "산업용전구 IR125 RED(250w, 하드글래스 열전구)",
       price: 6000,
-      src: "./img/1123.jpg",
+      src: "./img/1124.jpg",
       best: false,
       deliver: false,
       new: true

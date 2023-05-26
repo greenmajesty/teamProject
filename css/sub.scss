@@ -3,13 +3,13 @@
     margin: 0;
 }
 
-a {
-    text-decoration: none;
-    color: black;
-}
-
 li {
     list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
 
 h2 {
@@ -38,51 +38,94 @@ h2 {
     position: fixed;
     top: 0;
     z-index: 9;
-
 }
-
 .header {
     width: 100%;
-    height: 80px;
+    height: 80px; 
     display: flex;
     line-height: 80px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     background-color: white;
     border-bottom: 1px solid black;
-
-    .header_container {
+    .header_container{
         @include size (1420px, 80px);
         margin: 0 auto;
-
         .logo {
             @include size (220px, 80px);
             text-align: center;
             float: left;
-
             img {
                 height: 80px;
             }
         }
-
         .lnb {
             @include size (740px, 80px);
             display: flex;
             justify-content: space-around;
             float: left;
-        }
-
+            position: relative;
+            z-index: 1000;
+            .shop_menu {
+                ul{
+                    position: absolute;
+                    top: 81px;
+                    left: -220px;
+                    width: 445px;
+                    height: 0px;
+                    overflow: hidden;
+                    transition: 0.3s ease-in;
+                    li{
+                        @include size (365px, 70px);
+                        background-color: white;
+                        border-bottom: 1px solid #a2a2a2;
+                        border-right: 1px solid #a2a2a2;
+                        border-left: 1px solid #a2a2a2;
+                        padding-left: 70px;
+                        font-size: 14px;
+                        &:hover{
+                            background-color: #efe8da;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .our_story_menu {
+                ul{
+                    position: absolute;
+                    border-bottom: 1px solid #a2a2a2;
+                    border-right: 1px solid #a2a2a2;
+                    border-left: 1px solid #a2a2a2;
+                    top: 81px;
+                    left: -220px;
+                    background-color: white;
+                    box-sizing: border-box;
+                    transition: 0.3s;
+                    overflow: hidden;
+                    @include size (1420px, 70px);
+                    &:hover{
+                        background-color: #efe8da;
+                    }
+                    li{
+                        float: left;
+                        margin-right: 50px;
+                        &:first-child{
+                            margin-left: 375px;
+                        }
+                    }
+                }
+            }
+        }   
         .gnb {
             width: 460px;
             display: flex;
             justify-content: flex-end;
             float: left;
-
             .search-container {
                 position: relative;
                 display: inline-block;
             }
-
+    
             .search {
                 @include size (160px, 25px);
                 background-color: #FD8234;
@@ -94,7 +137,7 @@ h2 {
                 color: white;
                 font-family: 'Poppins', sans-serif;
             }
-
+    
             .search-button {
                 position: absolute;
                 top: 2px;
@@ -106,25 +149,25 @@ h2 {
                 cursor: pointer;
                 padding: 0 10px;
             }
-
+    
             .fas.fa-search {
                 color: white;
             }
-
+    
             .search::-webkit-search-cancel-button {
                 display: none;
             }
-
+    
             .login {
                 @include size (25px, 25px);
                 margin-right: 20px;
             }
-
+    
             .mypage {
                 @include size (25px, 25px);
                 margin-right: 20px;
             }
-
+    
             .cart {
                 @include size (25px, 25px);
                 margin-right: 25px;
@@ -132,8 +175,6 @@ h2 {
         }
     }
 }
-
-
 
 //--------------------------------------------------------------------------header
 
@@ -314,8 +355,23 @@ h2 {
                 @include size (273px, 274px)
             }
 
-            .text_box {
-                @include size (275px, 85px)
+            .textbox {
+                @include size (275px, 85px);
+                .product_name{
+                    margin-left: 10px;
+                    margin-top: 20px;
+                    font-size: 13px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    display: block;
+                    text-overflow: ellipsis;
+                }
+                .product_price{
+                    margin-left: 10px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    margin-top: 10px;
+                }
             }
 
             .best {

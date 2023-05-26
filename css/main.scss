@@ -66,18 +66,15 @@ h2 {
             float: left;
             position: relative;
             z-index: 1000;
-            .lnb_menu {
-                position: absolute;
-                width: 488px;
-                height: 860px;
-                top: 81px;
-                left: -220px;
-                z-index: 1000;
-                overflow: hidden;
+            .shop_menu {
                 ul{
                     position: absolute;
-                    top: -853px;
-                    transition: 0.5s ease-in;
+                    top: 81px;
+                    left: -220px;
+                    width: 445px;
+                    height: 0px;
+                    overflow: hidden;
+                    transition: 0.3s ease-in;
                     li{
                         @include size (365px, 70px);
                         background-color: white;
@@ -86,10 +83,34 @@ h2 {
                         border-left: 1px solid #a2a2a2;
                         padding-left: 70px;
                         font-size: 14px;
-                        z-index:1000;
                         &:hover{
                             background-color: #efe8da;
                             cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .our_story_menu {
+                ul{
+                    position: absolute;
+                    border-bottom: 1px solid #a2a2a2;
+                    border-right: 1px solid #a2a2a2;
+                    border-left: 1px solid #a2a2a2;
+                    top: 81px;
+                    left: -220px;
+                    background-color: white;
+                    box-sizing: border-box;
+                    transition: 0.3s;
+                    overflow: hidden;
+                    @include size (1420px, 70px);
+                    &:hover{
+                        background-color: #efe8da;
+                    }
+                    li{
+                        float: left;
+                        margin-right: 50px;
+                        &:first-child{
+                            margin-left: 375px;
                         }
                     }
                 }
