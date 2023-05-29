@@ -173,7 +173,7 @@ h2 {
 
 .main {
   width: 1420px;
-  height: 1950px;
+  height: auto;
   margin: 0 auto;
 }
 .main .main_container {
@@ -184,7 +184,11 @@ h2 {
 }
 .main .main_container .left .main_img {
   width: 820px;
-  height: 820px;
+  height: 825px;
+}
+.main .main_container .left .main_img img {
+  width: 100%;
+  height: 100%;
 }
 .main .main_container .left .left_menu {
   width: 820px;
@@ -200,8 +204,46 @@ h2 {
   font-size: 18px;
   color: #707070;
 }
+.main .main_container .left .left_menu div:hover {
+  cursor: pointer;
+}
 .main .main_container .left .left_menu .focus {
+  transition: 0.3s;
+  box-sizing: border-box;
   border-bottom: 5px solid black;
+}
+.main .main_container .left .left_contents {
+  width: 820px;
+}
+.main .main_container .left .left_contents .left_contents_detail {
+  display: none;
+  height: 1000px;
+  overflow: hidden;
+}
+.main .main_container .left .left_contents .left_contents_detail h3 {
+  margin-top: 70px;
+  margin-left: 45px;
+  margin-right: 45px;
+}
+.main .main_container .left .left_contents .left_contents_detail p {
+  margin-top: 30px;
+  margin-left: 45px;
+  margin-right: 45px;
+}
+.main .main_container .left .left_contents .left_contents_detail img {
+  margin-top: 65px;
+  width: 820px;
+}
+.main .main_container .left .left_contents .more-bar {
+  cursor: pointer;
+  width: 820px;
+  height: 85px;
+  line-height: 85px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #f2f2f2;
+  color: #000;
 }
 .main .main_container .right {
   width: 600px;
@@ -212,6 +254,23 @@ h2 {
   height: 215px;
   border-bottom: 1px solid #707070;
   box-sizing: border-box;
+  padding-top: 60px;
+}
+.main .main_container .right .detail_title h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 66px;
+}
+.main .main_container .right .detail_title h4 {
+  margin-left: 66px;
+  font-size: 24px;
+  font-weight: normal;
+}
+.main .main_container .right .detail_title p {
+  margin-left: 66px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 32px;
 }
 .main .main_container .right .detail_color {
   width: 600px;
@@ -219,17 +278,83 @@ h2 {
   border-bottom: 1px solid #707070;
   box-sizing: border-box;
 }
+.main .main_container .right .detail_color ul {
+  margin-left: 66px;
+  padding-top: 16px;
+}
+.main .main_container .right .detail_color ul li {
+  float: left;
+  width: 25px;
+  margin-right: 10px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: black;
+}
+.main .main_container .right .detail_color ul li:nth-child(1) {
+  background-color: #FFE88A;
+}
+.main .main_container .right .detail_color ul li:nth-child(2) {
+  background-color: green;
+}
+.main .main_container .right .detail_color ul li:nth-child(3) {
+  background-color: #0066B4;
+}
+.main .main_container .right .detail_color ul li:nth-child(4) {
+  background-color: pink;
+}
+.main .main_container .right .detail_color p {
+  font-size: 13px;
+  font-weight: bold;
+}
 .main .main_container .right .detail_additional {
   width: 600px;
   height: 285px;
   border-bottom: 1px solid #707070;
   box-sizing: border-box;
+  position: relative;
+}
+.main .main_container .right .detail_additional img {
+  margin-left: 70px;
+  padding-top: 55px;
+}
+.main .main_container .right .detail_additional p:nth-child(1) {
+  position: absolute;
+  top: 20px;
+  left: 70px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.main .main_container .right .detail_additional p:nth-child(3) {
+  position: absolute;
+  left: 280px;
+  bottom: 73px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.main .main_container .right .detail_additional p:nth-child(4) {
+  position: absolute;
+  bottom: 35px;
+  left: 280px;
+  font-weight: bold;
+  font-size: 18px;
 }
 .main .main_container .right .detail_card {
   width: 600px;
   height: 95px;
   border-bottom: 1px solid #707070;
   box-sizing: border-box;
+  font-size: 13px;
+  position: relative;
+}
+.main .main_container .right .detail_card h3 {
+  padding-top: 20px;
+  margin-left: 75px;
+  font-size: 13px;
+}
+.main .main_container .right .detail_card p {
+  position: absolute;
+  left: 145px;
+  top: 20px;
 }
 .main .main_container .right .detail_price {
   width: 600px;
@@ -242,6 +367,19 @@ h2 {
   height: 85px;
   border-bottom: 1px solid #707070;
   box-sizing: border-box;
+}
+.main .main_container .right .detail_btn .buy_btn {
+  width: 300px;
+  height: 85px;
+  float: left;
+  background-color: #EFE8DA;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+.main .main_container .right .detail_btn .cart_btn {
+  width: 300px;
+  height: 85px;
+  float: left;
 }
 .main .main_container .right .detail_guide {
   width: 600px;

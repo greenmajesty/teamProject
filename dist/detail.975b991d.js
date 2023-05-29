@@ -703,126 +703,54 @@ var productList = [{
 }];
 var _default = productList;
 exports.default = _default;
-},{}],"js/sub.js":[function(require,module,exports) {
+},{}],"js/detail.js":[function(require,module,exports) {
 "use strict";
 
 var _product_data = _interopRequireDefault(require("./product_data.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 $(document).ready(function () {
-  var imgItems = document.querySelectorAll('.category_img li');
-  var textItems = document.querySelectorAll('.category_text li');
-  $(window).scroll(function () {
-    if ($(window).scrollTop() >= 80) {
-      $('.header').addClass('fixed');
+  $(".lnb > div:first-child").mouseenter(function () {
+    $(".lnb .shop_menu ul").css('height', '1000px');
+    $(".lnb .our_story_menu ul").css('height', '0');
+  });
+  $(".lnb .shop_menu").mouseleave(function () {
+    $(".lnb .shop_menu ul").css('height', '0px');
+  });
+  $(".lnb > div:nth-child(2)").mouseenter(function () {
+    $(".lnb .our_story_menu ul").css('height', '80px');
+    $(".lnb .shop_menu ul").css('height', '0px');
+  });
+  $(".lnb .our_story_menu").mouseleave(function () {
+    $(".lnb .our_story_menu ul").css('height', '0');
+  });
+  $('.left_menu div').click(function () {
+    $('.left_menu div').removeClass('focus');
+    $(this).addClass('focus');
+    var index = $('.left_menu div').index(this);
+    $('.left_contents > div').css('display', 'none');
+    if (index == 0) {
+      $('.left_contents > div:eq(0)').css('display', 'block');
+      $('.left_contents > div:eq(1)').css('display', 'block');
+    } else if (index == 1) {
+      $('.left_contents > div:eq(2)').css('display', 'block');
+    } else if (index == 2) {
+      $('.left_contents > div:eq(3)').css('display', 'block');
+    } else if (index == 3) {
+      $('.left_contents > div:eq(4)').css('display', 'block');
+    }
+  });
+  $('.main_img').append("<img src=\"".concat(_product_data.default[0].src, "\" />"));
+  var contentHeight = $('.left_contents_detail').height();
+  $('#readMore').click(function () {
+    if ($('.left_contents_detail').height() == contentHeight) {
+      $('.left_contents_detail').css('height', 'auto');
+      $(this).text('접기');
     } else {
-      $('.header').removeClass('fixed');
+      $('.left_contents_detail').css('height', contentHeight + 'px');
+      $(this).text('상품설명 더보기');
     }
   });
-  $(document).ready(function () {
-    $(".lnb > div:first-child").mouseenter(function () {
-      $(".lnb .shop_menu ul").css('height', '1000px');
-      $(".lnb .our_story_menu ul").css('height', '0');
-    });
-    $(".lnb .shop_menu").mouseleave(function () {
-      $(".lnb .shop_menu ul").css('height', '0px');
-    });
-    $(".lnb > div:nth-child(2)").mouseenter(function () {
-      $(".lnb .our_story_menu ul").css('height', '80px');
-      $(".lnb .shop_menu ul").css('height', '0px');
-    });
-    $(".lnb .our_story_menu").mouseleave(function () {
-      $(".lnb .our_story_menu ul").css('height', '0');
-    });
-  });
-  imgItems.forEach(function (item, index) {
-    item.addEventListener('mouseover', function () {
-      textItems[index].classList.add('hovered');
-      imgItems[index].classList.add('hovered');
-    });
-    item.addEventListener('mouseout', function () {
-      textItems[index].classList.remove('hovered');
-      imgItems[index].classList.remove('hovered');
-    });
-  });
-  textItems.forEach(function (item, index) {
-    item.addEventListener('mouseover', function () {
-      imgItems[index].classList.add('hovered');
-      textItems[index].classList.add('hovered');
-    });
-    item.addEventListener('mouseout', function () {
-      imgItems[index].classList.remove('hovered');
-      textItems[index].classList.remove('hovered');
-    });
-  });
-  $(".footer_person").click(function () {
-    $(".fa-chevron-down").toggle();
-    $(".fa-chevron-up").toggle();
-    $(".footer_person_info").toggle();
-  });
-  var currentPage = 1;
-  var itemsPerPage = 12;
-  function createMainBoxes(productData, page) {
-    var $mainContainer = $(".main_container");
-    $mainContainer.empty();
-    var start = (page - 1) * itemsPerPage;
-    var end = start + itemsPerPage;
-    var pageItems = productData.slice(start, end);
-    for (var i = 0; i < pageItems.length; i++) {
-      var product = pageItems[i];
-      var $mainBox = $("<a href=\"detail.html?id=".concat(product.id, "\" class=\"main_box\"></a>"));
-      if (product.best) {
-        $mainBox.append('<div class="best">BEST</div>');
-      }
-      if (product.deliver) {
-        $mainBox.append('<div class="deliver">당일배송</div>');
-      }
-      $mainBox.append("<img src=\"".concat(product.src, "\" alt=\"\">"));
-      var $textBox = $('<div class="textbox"></div>');
-      $textBox.append("<div class=\"product_name\">".concat(product.name, "</div>"));
-      $textBox.append("<div class=\"product_price\">".concat(product.price, "\uC6D0</div>"));
-      $mainBox.append($textBox);
-      $mainContainer.append($mainBox);
-    }
-  }
-
-  // 가장 첫 페이지와 마지막 페이지 번호를 변수에 할당합니다.
-  var firstPage = 1;
-  var lastPage = Math.ceil(_product_data.default.length / itemsPerPage);
-
-  // 페이지 버튼 클릭 이벤트
-  $(".pagenation > div").click(function () {
-    var $this = $(this);
-    var buttonText = $this.text();
-    $(".pagenation > div").removeClass('now_page');
-    switch (buttonText) {
-      case "<<":
-        currentPage = firstPage;
-        break;
-      case "<":
-        if (currentPage > firstPage) {
-          // 현재 페이지가 첫 페이지보다 크면
-          currentPage--;
-        }
-        break;
-      case ">":
-        if (currentPage < lastPage) {
-          // 현재 페이지가 마지막 페이지보다 작으면
-          currentPage++;
-        }
-        break;
-      case ">>":
-        currentPage = lastPage;
-        break;
-      default:
-        var pageNo = parseInt(buttonText, 10);
-        if (!isNaN(pageNo)) {
-          currentPage = pageNo;
-        }
-    }
-    $(".pagenation > div").eq(currentPage + 1).addClass('now_page');
-    createMainBoxes(_product_data.default, currentPage);
-  });
-  createMainBoxes(_product_data.default, currentPage);
+  $('.left_menu div').first().click();
 });
 },{"./product_data.js":"js/product_data.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -993,5 +921,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/sub.js"], null)
-//# sourceMappingURL=/sub.3e71813d.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/detail.js"], null)
+//# sourceMappingURL=/detail.975b991d.js.map
