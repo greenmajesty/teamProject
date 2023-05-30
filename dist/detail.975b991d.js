@@ -751,6 +751,26 @@ $(document).ready(function () {
       $(this).text('상품설명 더보기');
     }
   });
+  var counterElement = document.getElementById("counter");
+  var minusButton = document.getElementById("minus");
+  var plusButton = document.getElementById("plus");
+  minusButton.addEventListener("click", function () {
+    var count = parseInt(counterElement.innerText);
+    if (count > 1) {
+      counterElement.innerText = count - 1;
+    }
+    checkButtonStatus();
+  });
+  plusButton.addEventListener("click", function () {
+    var count = parseInt(counterElement.innerText);
+    counterElement.innerText = count + 1;
+    checkButtonStatus();
+  });
+  function checkButtonStatus() {
+    var count = parseInt(counterElement.innerText);
+    minusButton.disabled = count <= 1;
+  }
+  checkButtonStatus();
   $('.open1').slideUp(0);
   $('.open2').slideUp(0);
   $('.open3').slideUp(0);
@@ -821,7 +841,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56587" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64848" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

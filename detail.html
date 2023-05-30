@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/detail.css">
+    <link rel="stylesheet" href="./css/detail.scss">
     <script src="./js/detail.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
@@ -185,7 +185,11 @@
                     <p>
                         총 상품금액(수량)
                     </p>
-                    <input type="number">
+                    <div class="counter">
+                        <button id="minus" disabled>-</button>
+                        <div id="counter">1</div>
+                        <button id="plus">+</button>
+                    </div>
                 </div>
                 <div class="detail_btn">
                     <div class="buy_btn">구매하기</div>
@@ -209,7 +213,8 @@
                 </div>
                 <div class="detail_guide_open open2">
                     <ul>
-                        <li>오후 1시까지 입금확인 된 주문 건은 당일 발송(주말/공휴일 제외)이 가능하며 이후 주문 건은 익일발송됩니다. 단, 주문 접수 후 조립하는 스탠드, 펜단트 제품은 오후 1시까지 입금확인 된 주문 건은익일 발송하며(주말/공휴일 제외) 이후 주문 건은 2일 후 발송됩니다.</li>
+                        <li>오후 1시까지 입금확인 된 주문 건은 당일 발송(주말/공휴일 제외)이 가능하며 이후 주문 건은 익일발송됩니다.
+                            단, 주문 접수 후 조립하는 스탠드, 펜단트 제품은 오후 1시까지 입금확인 된 주문 건은익일 발송하며(주말/공휴일 제외) 이후 주문 건은 2일 후 발송됩니다.</li>
                         <li>택배사 : 한진택배 (hanex.hanjin.co.kr / 1588-0011)</li>
                         <li>배송비 : 3,300원 (도서 산간지역 및 제주도는 요금이 추가됩니다.)</li>
                     </ul>

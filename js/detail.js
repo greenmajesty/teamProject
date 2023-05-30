@@ -16,7 +16,7 @@ $(document).ready(function () {
     $(".lnb .our_story_menu").mouseleave(function () {
         $(".lnb .our_story_menu ul").css('height', '0');
     });
-    $('.left_menu div').click(function() {
+    $('.left_menu div').click(function () {
         $('.left_menu div').removeClass('focus');
         $(this).addClass('focus');
 
@@ -27,7 +27,7 @@ $(document).ready(function () {
         $('.left_contents > div').css('display', 'none');
 
 
-        if(index == 0) {
+        if (index == 0) {
             $('.left_contents > div:eq(0)').css('display', 'block');
             $('.left_contents > div:eq(1)').css('display', 'block');
         } else if (index == 1) {
@@ -43,17 +43,43 @@ $(document).ready(function () {
 
     $('.main_img').append(`<img src="${productList[0].src}" />`);
 
-   let contentHeight = $('.left_contents_detail').height(); 
+    let contentHeight = $('.left_contents_detail').height();
 
-    $('#readMore').click(function() {
-        if ($('.left_contents_detail').height() == contentHeight) { 
-            $('.left_contents_detail').css('height', 'auto'); 
-            $(this).text('접기'); 
-        } else { 
-            $('.left_contents_detail').css('height', 1000 + 'px'); 
-            $(this).text('상품설명 더보기'); 
+    $('#readMore').click(function () {
+        if ($('.left_contents_detail').height() == contentHeight) {
+            $('.left_contents_detail').css('height', 'auto');
+            $(this).text('접기');
+        } else {
+            $('.left_contents_detail').css('height', 1000 + 'px');
+            $(this).text('상품설명 더보기');
         }
     });
+
+    const counterElement = document.getElementById("counter");
+    const minusButton = document.getElementById("minus");
+    const plusButton = document.getElementById("plus");
+
+   minusButton.addEventListener("click", function () {
+        let count = parseInt(counterElement.innerText);
+        if (count > 1) {
+            counterElement.innerText = count - 1;
+        }
+        checkButtonStatus();
+    });
+
+    plusButton.addEventListener("click", function () {
+        let count = parseInt(counterElement.innerText);
+        counterElement.innerText = count + 1;
+        checkButtonStatus();
+    });
+
+    function checkButtonStatus() {
+        let count = parseInt(counterElement.innerText);
+        minusButton.disabled = count <= 1;
+    }
+
+    checkButtonStatus();
+
     $('.open1').slideUp(0);
     $('.open2').slideUp(0);
     $('.open3').slideUp(0);
@@ -61,39 +87,38 @@ $(document).ready(function () {
     let guideStatus2 = false;
     let guideStatus3 = false;
 
-    $('.detail_guide').click(function(){
-        if(guideStatus1){
-            $('.open1').slideUp(200, function() {
+    $('.detail_guide').click(function () {
+        if (guideStatus1) {
+            $('.open1').slideUp(200, function () {
                 $('.detail_guide2').css('border-top', 'none');
             });
             guideStatus1 = false;
         } else {
-            $('.open1').slideDown(200, function() {
+            $('.open1').slideDown(200, function () {
                 $('.detail_guide2').css('border-top', '1px solid #707070');
             });
             guideStatus1 = true;
         }
     });
-    $('.detail_guide2').click(function(){
-        if(guideStatus2){
-            $('.open2').slideUp(200, function() {
+    $('.detail_guide2').click(function () {
+        if (guideStatus2) {
+            $('.open2').slideUp(200, function () {
                 $('.detail_guide3').css('border-top', 'none');
             });
             guideStatus2 = false;
         } else {
-            $('.open2').slideDown(200, function() {
+            $('.open2').slideDown(200, function () {
                 $('.detail_guide3').css('border-top', '1px solid #707070');
             });
             guideStatus2 = true;
         }
     });
-    $('.detail_guide3').click(function(){
-        if(guideStatus3){
-            $('.open3').slideUp(200, function() {
-            });
+    $('.detail_guide3').click(function () {
+        if (guideStatus3) {
+            $('.open3').slideUp(200, function () {});
             guideStatus3 = false;
         } else {
-            $('.open3').slideDown(200, function() {
+            $('.open3').slideDown(200, function () {
                 $('.open3').css('border-bottom', '1px solid #707070');
             });
             guideStatus3 = true;
@@ -102,4 +127,3 @@ $(document).ready(function () {
 
     $('.left_menu div').first().click();
 });
-

@@ -402,47 +402,8 @@ h2 {
   height: 85px;
   border-bottom: 1px solid #707070;
   box-sizing: border-box;
-  position: relative;
 }
-.main .main_container .right .detail_price p {
-  margin-left: 75px;
-  line-height: 85px;
-  font-weight: bold;
-}
-.main .main_container .right .detail_price .counter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 25px;
-  left: 300px;
-}
-.main .main_container .right .detail_price .counter div {
-  font-size: 14px;
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
-  text-align: center;
-  border: 1px solid #707070;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-.main .main_container .right .detail_price .counter button {
-  font-size: 22px;
-  width: 36px;
-  height: 36px;
-  border: 1px solid #707070;
-  box-sizing: border-box;
-  background-color: white;
-  line-height: 34px;
-  text-align: center;
-  color: #707070;
-  cursor: pointer;
-}
-.main .main_container .right .detail_price .counter button:hover {
-  font-weight: bold;
-}
-.main .main_container .detail_btn {
+.main .main_container .right .detail_btn {
   width: 600px;
   height: 85px;
   border-bottom: 1px solid #707070;
@@ -451,9 +412,8 @@ h2 {
   text-align: center;
   font-size: 20px;
   font-weight: normal;
-  cursor: pointer;
 }
-.main .main_container .detail_btn .buy_btn {
+.main .main_container .right .detail_btn .buy_btn {
   width: 300px;
   height: 85px;
   float: left;
@@ -462,36 +422,27 @@ h2 {
   border-right: 1px solid black;
   box-sizing: border-box;
 }
-.main .main_container .detail_btn .buy_btn:hover {
-  background-color: #261c13;
-  color: #efe8da;
-}
-.main .main_container .detail_btn .cart_btn {
+.main .main_container .right .detail_btn .cart_btn {
   width: 300px;
   height: 85px;
   float: left;
 }
-.main .main_container .detail_btn .cart_btn:hover {
-  border: 1px solid #FD8234;
-  color: #FD8234;
-  box-sizing: border-box;
-}
-.main .main_container .detail_guide {
+.main .main_container .right .detail_guide {
   width: 600px;
   height: 85px;
   border-bottom: 1px solid #707070;
   box-sizing: border-box;
   position: relative;
 }
-.main .main_container .detail_guide:hover {
+.main .main_container .right .detail_guide:hover {
   cursor: pointer;
 }
-.main .main_container .detail_guide p {
+.main .main_container .right .detail_guide p {
   font-size: 18px;
   line-height: 85px;
   margin-left: 34px;
 }
-.main .main_container .detail_guide .plus_btn {
+.main .main_container .right .detail_guide .plus_btn {
   width: 25px;
   height: 25px;
   font-size: 25px;
@@ -501,33 +452,31 @@ h2 {
   right: 42px;
   top: 30px;
 }
-.main .main_container .detail_guide_open {
+.main .main_container .right .detail_guide_open {
   width: 600px;
   height: auto;
   overflow: hidden;
 }
-.main .main_container .detail_guide_open ul {
-  padding: 27px;
+.main .main_container .right .detail_guide_open ul {
+  list-style-type: disc;
+  padding-left: 30px;
 }
-.main .main_container .detail_guide_open ul li {
-  margin-top: 10px;
-}
-.main .main_container .detail_guide2 {
+.main .main_container .right .detail_guide2 {
   width: 600px;
   height: 85px;
   border-bottom: 1px solid #707070;
   box-sizing: border-box;
   position: relative;
 }
-.main .main_container .detail_guide2:hover {
+.main .main_container .right .detail_guide2:hover {
   cursor: pointer;
 }
-.main .main_container .detail_guide2 p {
+.main .main_container .right .detail_guide2 p {
   font-size: 18px;
   line-height: 85px;
   margin-left: 34px;
 }
-.main .main_container .detail_guide2 .plus_btn {
+.main .main_container .right .detail_guide2 .plus_btn {
   width: 25px;
   height: 25px;
   font-size: 25px;
@@ -537,22 +486,22 @@ h2 {
   right: 42px;
   top: 30px;
 }
-.main .main_container .detail_guide3 {
+.main .main_container .right .detail_guide3 {
   width: 600px;
   height: 85px;
   border-bottom: 1px solid #707070;
   box-sizing: border-box;
   position: relative;
 }
-.main .main_container .detail_guide3:hover {
+.main .main_container .right .detail_guide3:hover {
   cursor: pointer;
 }
-.main .main_container .detail_guide3 p {
+.main .main_container .right .detail_guide3 p {
   font-size: 18px;
   line-height: 85px;
   margin-left: 34px;
 }
-.main .main_container .detail_guide3 .plus_btn {
+.main .main_container .right .detail_guide3 .plus_btn {
   width: 25px;
   height: 25px;
   font-size: 25px;
@@ -694,4 +643,4 @@ h2 {
   font-size: 25px;
 }
 
-/*# sourceMappingURL=/detail.f874a451.css.map */
+/*# sourceMappingURL=/detail.ae9adbab.css.map */
