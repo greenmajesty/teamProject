@@ -323,10 +323,14 @@ h2 {
 }
 .main .main_container .left .left_contents .left_contents_review #review-form select {
   margin-right: 10px;
+  height: 25px;
 }
 .main .main_container .left .left_contents .left_contents_review #review-form textarea {
   width: 500px;
   height: 100px;
+}
+.main .main_container .left .left_contents .left_contents_review #review-form input {
+  height: 25px;
 }
 .main .main_container .left .left_contents .left_contents_review #review-form button {
   width: 70px;
