@@ -43,10 +43,11 @@ $(document).ready(function () {
 
     $('.main_img').append(`<img src="${productList[0].src}" />`);
 
-    let contentHeight = $('.left_contents_detail').height();
+    let contentHeight1 = $('.left_contents_detail').height();
+    let contentHeight2 = $('.left_contents_review').height();
 
     $('#readMore').click(function () {
-        if ($('.left_contents_detail').height() == contentHeight) {
+        if ($('.left_contents_detail').height() == contentHeight1) {
             $('.left_contents_detail').css('height', 'auto');
             $(this).text('접기');
         } else {
@@ -54,24 +55,108 @@ $(document).ready(function () {
             $(this).text('상품설명 더보기');
         }
     });
+    $('#reviewMore').click(function () {
+        if ($('.left_contents_review').height() == contentHeight2) {
+            $('.left_contents_review').css('height', 'auto');
+            $(this).text('접기');
+        } else {
+            $('.left_contents_review').css('height', 1000 + 'px');
+            $(this).text('리뷰 더보기');
+        }
+    });
+
+    const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+    document.getElementById('submit-review').addEventListener('click', function() {
+        const stars = document.getElementById('stars').value;
+        const id = document.getElementById('id').value;
+        const option = document.getElementById('option').value;
+        const review = document.getElementById('review').value;
+
+        if (!id.trim() || !review.trim()) {
+            alert("ID와 리뷰를 모두 입력해주세요.");
+            return;
+        }
+    
+        const date = new Date().toLocaleDateString(); // 현재 날짜
+    
+        const newReview = document.createElement('div');
+        newReview.className = 'review_main';
+        newReview.innerHTML = `
+            <div class="star">${'★'.repeat(stars)}</div>
+            <div class="id">${id}</div>
+            <div class="date">${date}</div>
+            <div class="option">옵션 : ${option}</div>
+            </br>
+            <div class="main_review">${review}</div>
+        `;
+    
+        document.querySelector('.left_contents_review').appendChild(newReview); // 새 리뷰를 body 요소에 추가합니다. 실제로는 리뷰를 추가할 적절한 요소를 선택해야 합니다.
+    });
+
+    document.querySelector('.review_write').addEventListener('click', function() {
+        const form = document.getElementById('review-form');
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    });
+
+//별 나타내기
+let starDivs = document.querySelectorAll('.star');
+starDivs.forEach(starDiv => {
+  let numberOfStars = parseInt(starDiv.textContent, 10);
+  let stars = '★'.repeat(numberOfStars);
+  starDiv.textContent = stars;
+});
+
+// 아이디 가리기
+let idDivs = document.querySelectorAll('.id');
+idDivs.forEach(idDiv => {
+  let idText = idDiv.textContent.trim();
+  let maskedText = idText.slice(0, 3) + '*'.repeat(idText.length - 3);
+  idDiv.textContent = maskedText;
+});
+
 
     const counterElement = document.getElementById("counter");
     const minusButton = document.getElementById("minus");
     const plusButton = document.getElementById("plus");
+    const sumElement = document.querySelector('.sum');
+    const priceElement = document.querySelector('.detail_additional_price');
+    const price = Number(priceElement.innerText.replace(/[^0-9]/g, ''));
 
-   minusButton.addEventListener("click", function () {
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    minusButton.addEventListener("click", function () {
         let count = parseInt(counterElement.innerText);
         if (count > 1) {
             counterElement.innerText = count - 1;
         }
         checkButtonStatus();
+        updateSum();
     });
 
     plusButton.addEventListener("click", function () {
         let count = parseInt(counterElement.innerText);
         counterElement.innerText = count + 1;
         checkButtonStatus();
+        updateSum();
     });
+
+    function updateSum() {
+        let count = parseInt(counterElement.innerText);
+        sumElement.innerText = numberWithCommas(count * price) + "원";
+    }
 
     function checkButtonStatus() {
         let count = parseInt(counterElement.innerText);
@@ -79,6 +164,7 @@ $(document).ready(function () {
     }
 
     checkButtonStatus();
+    updateSum();
 
     $('.open1').slideUp(0);
     $('.open2').slideUp(0);

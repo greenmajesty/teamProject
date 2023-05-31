@@ -326,6 +326,126 @@ h2 {
                     display: none;
                     height: 1000px;
                     overflow: hidden;
+                    position: relative;
+
+                    .review_title {
+                        padding-top: 45px;
+                        margin-left: 35px;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+
+                    .review_write {
+                        position: absolute;
+                        right: 35px;
+                        top: 55px;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+
+                    .bar {
+                        height: 3px;
+                        width: 770px;
+                        margin-top: 15px;
+                        background-color: black;
+                        margin-left: 35px;
+                    }
+                    #review-form{
+                        width: 730px;
+                        margin: 0 auto;
+                        text-align: center;
+                        margin-top: 22px;
+                        label{
+                            margin-right: 5px;
+                            &:nth-child(1){
+                                position: absolute;
+                                left: 105px;
+                            }
+                            
+                            &:nth-child(9) {
+                                position: absolute;
+                                top: 153px;
+                                left: 90px;
+                            }
+                        }
+                        select{
+                            margin-right: 10px;
+                        }
+                        textarea{
+                            width: 500px;
+                            height: 100px;
+                        }
+                        button{
+                            width: 70px;
+                            height: 30px;
+                            position: absolute;
+                            top: 155px;
+                            right: 70px;
+                        }
+                    }
+                    .review_container {
+                        .swiper-container {
+                            margin: 0 auto;
+                            margin-top: 20px;
+                            width: 700px;
+                            height: 120px;
+                            overflow: hidden;
+                        }
+
+                        .swiper-slide {
+                            width: 120px;
+                            height: 120px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .swiper-button-next,
+                        .swiper-button-prev {
+                            width: 35px; // 원하는 너비로 변경
+                            height: 35px; // 원하는 높이로 변경
+                            background-size: 10px 10px;
+                            color: black;
+                            top: 175px;
+                            &:hover{
+                                font-weight: bold;
+                                font-size: 20px;
+                            }
+                        }
+
+                        .swiper-button-next::after,
+                        .swiper-button-prev::after {
+                            display: none;
+                        }
+
+                        .swiper-slide img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                }
+                .review_main{
+                    background-color: #EFE8DA;
+                    width: 720px;
+                    height: auto;
+                    padding: 25px;
+                    margin: 25px;
+                    position: relative;
+                    .date{
+                        position: absolute;
+                        color: grey;
+                        right: 15px;
+                        top: 15px;
+                    }
+                    .option{
+                        color: rgb(167, 167, 167);
+                    }
+                    .main_review{
+                        width: 550px;
+                    }
                 }
             }
         }
@@ -470,11 +590,13 @@ h2 {
                 border-bottom: 1px solid #707070;
                 box-sizing: border-box;
                 position: relative;
-                p{
+
+                p {
                     margin-left: 75px;
                     line-height: 85px;
                     font-weight: bold;
                 }
+
                 .counter {
                     display: flex;
                     justify-content: center;
@@ -505,12 +627,21 @@ h2 {
                         text-align: center;
                         color: #707070;
                         cursor: pointer;
-                        &:hover{
+
+                        &:hover {
                             font-weight: bold;
                         }
                     }
+
                 }
 
+                .sum {
+                    position: absolute;
+                    right: 40px;
+                    top: 30px;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
             }
         }
 
