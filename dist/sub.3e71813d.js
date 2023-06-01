@@ -708,6 +708,12 @@ exports.default = _default;
 
 var _product_data = _interopRequireDefault(require("./product_data.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 $(document).ready(function () {
   var imgItems = document.querySelectorAll('.category_img li');
   var textItems = document.querySelectorAll('.category_text li');
@@ -761,6 +767,7 @@ $(document).ready(function () {
   });
   var currentPage = 1;
   var itemsPerPage = 12;
+  var filteredProducts = _toConsumableArray(_product_data.default);
   function createMainBoxes(productData, page) {
     var $mainContainer = $(".main_container");
     $mainContainer.empty();
@@ -770,11 +777,14 @@ $(document).ready(function () {
     for (var i = 0; i < pageItems.length; i++) {
       var product = pageItems[i];
       var $mainBox = $("<a href=\"detail.html?id=".concat(product.id, "\" class=\"main_box\"></a>"));
+      var deliverLeft = '70px';
       if (product.best) {
         $mainBox.append('<div class="best">BEST</div>');
+      } else if (product.deliver) {
+        deliverLeft = '0';
       }
       if (product.deliver) {
-        $mainBox.append('<div class="deliver">당일배송</div>');
+        $mainBox.append("<div class=\"deliver\" style=\"left: ".concat(deliverLeft, ";\">\uB2F9\uC77C\uBC30\uC1A1</div>"));
       }
       $mainBox.append("<img src=\"".concat(product.src, "\" alt=\"\">"));
       var $textBox = $('<div class="textbox"></div>');
@@ -784,7 +794,41 @@ $(document).ready(function () {
       $mainContainer.append($mainBox);
     }
   }
+  function filterProducts(productData, condition) {
+    // 필터링 조건을 만족하는 상품들만 반환
+    return productData.filter(function (product) {
+      return product[condition];
+    });
+  }
+  function updateProductList() {
+    // 필터링 조건을 select 엘리먼트에서 받아옴
+    var selectedOption = document.getElementById("filter-select").value;
 
+    // 필터링 조건에 따라 상품 데이터를 필터링
+    filteredProducts = _toConsumableArray(_product_data.default); // 초기 배열 복사
+    if (selectedOption === "best") {
+      filteredProducts = filterProducts(filteredProducts, "best");
+    } else if (selectedOption === "deliver") {
+      filteredProducts = filterProducts(filteredProducts, "deliver");
+    }
+
+    // 정렬 조건에 따라 상품 데이터를 정렬
+    if (selectedOption === "price-asc") {
+      filteredProducts.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    } else if (selectedOption === "price-desc") {
+      filteredProducts.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    }
+
+    // 필터링된 상품 데이터로 상품 리스트 업데이트
+    createMainBoxes(filteredProducts, currentPage);
+  }
+
+  // 필터링 조건이 변경되면 상품 리스트를 업데이트
+  document.getElementById("filter-select").addEventListener("change", updateProductList);
   // 가장 첫 페이지와 마지막 페이지 번호를 변수에 할당합니다.
   var firstPage = 1;
   var lastPage = Math.ceil(_product_data.default.length / itemsPerPage);
@@ -820,9 +864,10 @@ $(document).ready(function () {
         }
     }
     $(".pagenation > div").eq(currentPage + 1).addClass('now_page');
-    createMainBoxes(_product_data.default, currentPage);
+    createMainBoxes(filteredProducts, currentPage); // 필터링된 상품 데이터를 사용
   });
-  createMainBoxes(_product_data.default, currentPage);
+
+  createMainBoxes(filteredProducts, currentPage);
 });
 },{"./product_data.js":"js/product_data.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -849,7 +894,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52765" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62599" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

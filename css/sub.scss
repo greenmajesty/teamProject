@@ -322,12 +322,17 @@ h2 {
     width: 1420px;
     height: 1550px;
     margin: 0 auto;
-
+    position: relative;
     h3 {
         margin-top: 45px;
         margin-left: 100px;
     }
 
+    select {
+        position: absolute;
+        right: 100px;
+        top: 0;
+    }
     .main_container {
         @include size (1220px, 1160px);
         margin: 30px auto;

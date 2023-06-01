@@ -20,6 +20,10 @@ h2 {
     font-size: 28px;
 }
 
+::-webkit-scrollbar {
+    display: none;
+  }
+  
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
@@ -224,7 +228,8 @@ h2 {
 
         .left {
             width: 820px;
-
+            height: 900px;
+            overflow-y: auto;
             .main_img {
                 width: 820px;
                 height: 825px;
@@ -451,13 +456,58 @@ h2 {
                         width: 550px;
                     }
                 }
+                .left_contents_qa {
+                    display: none;
+                    height: 1000px;
+                    overflow: hidden;
+                    position: relative;
+
+                    .qa_title {
+                        padding-top: 45px;
+                        margin-left: 35px;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+
+                    .qa_write {
+                        position: absolute;
+                        right: 35px;
+                        top: 55px;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+
+                    .bar {
+                        height: 3px;
+                        width: 770px;
+                        margin-top: 15px;
+                        background-color: black;
+                        margin-left: 35px;
+                    }
+                    .qa_category {
+                        margin-top: 15px;
+                        ul{
+                            margin-left: 35px;
+                            li{
+                                float: left;
+                                padding: 0 32px;
+                                border-left: 1px solid black;
+                                &:last-child{
+                                    border-right: 1px solid black;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
         .right {
             width: 600px;
             border: 1px solid #707070;
-
+            height: 900px;
+            overflow-y: auto;
             .detail_title {
                 @include size (600px, 215px);
                 border-bottom: 1px solid #707070;

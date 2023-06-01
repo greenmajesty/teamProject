@@ -350,55 +350,36 @@ h2 {
     @include size (1420px, 650px);
     margin-top: 50px;
     .swiper-container{
-        margin: 0 auto;
+        margin: 20px auto;
         width: 1180px;
         height: 458px;
+        overflow: hidden;
         position: relative;
-        i {
-            font-size: 60px;
-            color: #ccc;
+        .swiper-wrapper{
+            width: 700px;
+            height: 400px;
+            swiper-slide{
+                &.swiper-slide-next{
+                    width: 700px;
+                    height: 700px;
+                }
+            }
+
+        }
+        img{
+            width: 340px;
+            height: 340px;
+        }
+        i{
             position: absolute;
-            top: 250px;
-        }
-        .fa-chevron-left{
-            top: 190px;
-            left: -70px;
-        }
-        .fa-chevron-right{
-            top: 190px;
-            right: -50px;
-        }
-        .swiper-slide{
-            position: absolute;
-        }
-        .slide1{
-          top: 59px;
-            img{
-                @include size (320px,320px)
+            &::before{
+                display: none;
             }
         }
-        .slide2 {
-            left: 281px;
-            z-index: 3;
-            img{
-                @include size (620px, 458px)
-            }
-        }
-        .slide3{
-            top: 59px;
-            left: 839px;
-            img{
-                @include size (320px,320px)
-            }
-        }
-        .slide4{
-            display: none;
-        }
-        .slide5{
-            display: none;
-        }
+        
     }
-}
+    }
+
 
 
 

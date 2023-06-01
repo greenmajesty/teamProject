@@ -73,32 +73,48 @@ $(document).ready(function () {
             prevEl: '.swiper-button-prev',
         },
     });
-    document.getElementById('submit-review').addEventListener('click', function() {
-        const stars = document.getElementById('stars').value;
-        const id = document.getElementById('id').value;
-        const option = document.getElementById('option').value;
-        const review = document.getElementById('review').value;
 
-        if (!id.trim() || !review.trim()) {
-            alert("ID와 리뷰를 모두 입력해주세요.");
-            return;
-        }
     
-        const date = new Date().toLocaleDateString(); // 현재 날짜
-    
-        const newReview = document.createElement('div');
-        newReview.className = 'review_main';
-        newReview.innerHTML = `
-            <div class="star">${'★'.repeat(stars)}</div>
-            <div class="id">${id}</div>
-            <div class="date">${date}</div>
-            <div class="option">옵션 : ${option}</div>
-            </br>
-            <div class="main_review">${review}</div>
-        `;
-    
-        document.querySelector('.left_contents_review').appendChild(newReview); // 새 리뷰를 body 요소에 추가합니다. 실제로는 리뷰를 추가할 적절한 요소를 선택해야 합니다.
-    });
+// 아이디 가리기 기능을 함수로 분리
+function maskId(idDiv) {
+  let idText = idDiv.textContent.trim();
+  let maskedText = idText.slice(0, 3) + '*'.repeat(idText.length - 3);
+  idDiv.textContent = maskedText;
+}
+
+// 기존 아이디 가리기 코드 실행
+let idDivs = document.querySelectorAll('.id');
+idDivs.forEach(maskId);
+
+document.getElementById('submit-review').addEventListener('click', function() {
+    const stars = document.getElementById('stars').value;
+    const id = document.getElementById('id').value;
+    const option = document.getElementById('option').value;
+    const review = document.getElementById('review').value;
+
+    if (!id.trim() || !review.trim()) {
+        alert("ID와 리뷰를 모두 입력해주세요.");
+        return;
+    }
+
+    const date = new Date().toLocaleDateString(); // 현재 날짜
+
+    const newReview = document.createElement('div');
+    newReview.className = 'review_main';
+    newReview.innerHTML = `
+        <div class="star">${'★'.repeat(stars)}</div>
+        <div class="id">${id}</div>
+        <div class="date">${date}</div>
+        <div class="option">옵션 : ${option}</div>
+        </br>
+        <div class="main_review">${review}</div>
+    `;
+
+    const idDiv = newReview.querySelector('.id');
+    maskId(idDiv);  // 새 리뷰에 아이디 가리기 기능 적용
+
+    document.querySelector('.left_contents_review .review_main_container').prepend(newReview); // 리뷰를 가장 처음에 추가
+});
 
     document.querySelector('.review_write').addEventListener('click', function() {
         const form = document.getElementById('review-form');
@@ -117,13 +133,7 @@ starDivs.forEach(starDiv => {
   starDiv.textContent = stars;
 });
 
-// 아이디 가리기
-let idDivs = document.querySelectorAll('.id');
-idDivs.forEach(idDiv => {
-  let idText = idDiv.textContent.trim();
-  let maskedText = idText.slice(0, 3) + '*'.repeat(idText.length - 3);
-  idDiv.textContent = maskedText;
-});
+
 
 
     const counterElement = document.getElementById("counter");

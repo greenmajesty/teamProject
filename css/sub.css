@@ -282,10 +282,16 @@ h2 {
   width: 1420px;
   height: 1550px;
   margin: 0 auto;
+  position: relative;
 }
 .main h3 {
   margin-top: 45px;
   margin-left: 100px;
+}
+.main select {
+  position: absolute;
+  right: 100px;
+  top: 0;
 }
 .main .main_container {
   width: 1220px;

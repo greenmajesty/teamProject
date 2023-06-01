@@ -769,6 +769,17 @@ $(document).ready(function () {
       prevEl: '.swiper-button-prev'
     }
   });
+
+  // 아이디 가리기 기능을 함수로 분리
+  function maskId(idDiv) {
+    var idText = idDiv.textContent.trim();
+    var maskedText = idText.slice(0, 3) + '*'.repeat(idText.length - 3);
+    idDiv.textContent = maskedText;
+  }
+
+  // 기존 아이디 가리기 코드 실행
+  var idDivs = document.querySelectorAll('.id');
+  idDivs.forEach(maskId);
   document.getElementById('submit-review').addEventListener('click', function () {
     var stars = document.getElementById('stars').value;
     var id = document.getElementById('id').value;
@@ -782,8 +793,11 @@ $(document).ready(function () {
 
     var newReview = document.createElement('div');
     newReview.className = 'review_main';
-    newReview.innerHTML = "\n            <div class=\"star\">".concat('★'.repeat(stars), "</div>\n            <div class=\"id\">").concat(id, "</div>\n            <div class=\"date\">").concat(date, "</div>\n            <div class=\"option\">\uC635\uC158 : ").concat(option, "</div>\n            </br>\n            <div class=\"main_review\">").concat(review, "</div>\n        ");
-    document.querySelector('.left_contents_review').appendChild(newReview); // 새 리뷰를 body 요소에 추가합니다. 실제로는 리뷰를 추가할 적절한 요소를 선택해야 합니다.
+    newReview.innerHTML = "\n        <div class=\"star\">".concat('★'.repeat(stars), "</div>\n        <div class=\"id\">").concat(id, "</div>\n        <div class=\"date\">").concat(date, "</div>\n        <div class=\"option\">\uC635\uC158 : ").concat(option, "</div>\n        </br>\n        <div class=\"main_review\">").concat(review, "</div>\n    ");
+    var idDiv = newReview.querySelector('.id');
+    maskId(idDiv); // 새 리뷰에 아이디 가리기 기능 적용
+
+    document.querySelector('.left_contents_review .review_main_container').prepend(newReview); // 리뷰를 가장 처음에 추가
   });
 
   document.querySelector('.review_write').addEventListener('click', function () {
@@ -801,14 +815,6 @@ $(document).ready(function () {
     var numberOfStars = parseInt(starDiv.textContent, 10);
     var stars = '★'.repeat(numberOfStars);
     starDiv.textContent = stars;
-  });
-
-  // 아이디 가리기
-  var idDivs = document.querySelectorAll('.id');
-  idDivs.forEach(function (idDiv) {
-    var idText = idDiv.textContent.trim();
-    var maskedText = idText.slice(0, 3) + '*'.repeat(idText.length - 3);
-    idDiv.textContent = maskedText;
   });
   var counterElement = document.getElementById("counter");
   var minusButton = document.getElementById("minus");
@@ -913,7 +919,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52765" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62599" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
