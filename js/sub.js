@@ -1,8 +1,11 @@
 import productList from './product_data.js';
 
+
+
 $(document).ready(function () {
     var imgItems = document.querySelectorAll('.category_img li');
     var textItems = document.querySelectorAll('.category_text li');
+
 
     $(window).scroll(function () {
         if ($(window).scrollTop() >= 80) {

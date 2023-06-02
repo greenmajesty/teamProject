@@ -315,18 +315,39 @@ h2 {
   width: 700px;
   height: 400px;
 }
-.best .swiper-container .swiper-wrapper swiper-slide.swiper-slide-next {
-  width: 700px;
-  height: 700px;
+.best .swiper-container .swiper-wrapper .swiper-slide img {
+  position: absolute;
+  left: 34px;
+  top: 55px;
+}
+.best .swiper-container .swiper-wrapper .swiper-slide-next {
+  z-index: 9;
+}
+.best .swiper-container .swiper-wrapper .swiper-slide-next img {
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 620px;
+  height: 458px;
 }
 .best .swiper-container img {
   width: 340px;
   height: 340px;
 }
-.best .swiper-container i {
+.best .swiper-container .swiper-button-next i {
+  color: #ccc;
+  font-size: 60px;
   position: absolute;
+  left: 0;
 }
-.best .swiper-container i::before {
+.best .swiper-container .swiper-button-next::after {
+  display: none;
+}
+.best .swiper-container .swiper-button-prev i {
+  color: #ccc;
+  font-size: 60px;
+}
+.best .swiper-container .swiper-button-prev::after {
   display: none;
 }
 
@@ -344,6 +365,7 @@ h2 {
   font-weight: bold;
   justify-content: space-between;
   position: relative;
+  cursor: pointer;
 }
 .recommend ul .recommend_progress {
   width: 80px;
@@ -353,6 +375,7 @@ h2 {
   margin-top: 10px;
   top: 25px;
   left: -18px;
+  transition: 0.3s;
 }
 .recommend .recommend_container {
   height: 458px;

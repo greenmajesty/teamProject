@@ -1,4 +1,13 @@
 import productList from './product_data.js';
+import qaList from './qa.js';
+
+
+$(function () {
+    $('#header').load("header.html");
+    $('#footer').load("footer.html");
+    $('#topBtn').load("topBtn.html");
+})
+
 
 $(document).ready(function () {
 
@@ -133,8 +142,109 @@ starDivs.forEach(starDiv => {
   starDiv.textContent = stars;
 });
 
+//동적으로 리스트 나타내기
+const qaBox = document.querySelector('.qa_body_qabox');
+const itemsPerPage = 7;
+let currentPage = 1;
+let currentCategory = 'ALL'; // Default category
 
+function displayPage(page) {
+    // Clear the box
+    qaBox.innerHTML = '';
+    
+    let itemsToShow = qaList; // Default to all items
 
+    if (currentCategory !== 'ALL') {
+        itemsToShow = qaList.filter(item => {
+            switch (currentCategory) {
+                case '상품문의':
+                    return item.product_qa;
+                case '배송문의':
+                    return item.deliver_qa;
+                case '기타':
+                    return item.guitar_qa;
+                default:
+                    return true;
+            }
+        });
+    }
+
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const itemsToDisplay = itemsToShow.slice(startIndex, endIndex);
+
+    itemsToDisplay.forEach(item => {
+        const ul = document.createElement('ul');
+    
+        const li1 = document.createElement('li');
+        li1.textContent = '답변완료';
+    
+        const li2 = document.createElement('li');
+        li2.textContent = item.title;
+    
+        const li3 = document.createElement('li');
+        const maskedId = item.id.substring(0, 3).padEnd(item.id.length, '*');
+        li3.textContent = maskedId;
+    
+        const li4 = document.createElement('li');
+        li4.textContent = item.date.toString();
+    
+        ul.append(li1, li2, li3, li4);
+    
+        qaBox.appendChild(ul);
+    });
+}
+// Handle category buttons
+const categoryButtons = document.querySelectorAll('.qa_category ul li');
+categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Update current category
+        currentCategory = button.textContent;
+
+        // Display first page of the selected category
+        currentPage = 1;
+        displayPage(currentPage);
+
+        // Update focus class
+        buttons.forEach(btn => btn.classList.remove('focus'));
+        buttons[currentPage + 1].classList.add('focus');
+    });
+});
+
+// Handle pagination buttons
+const buttons = document.querySelectorAll('.pagination div');
+buttons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        // Remove focus class from the current page button
+        buttons[currentPage + 1].classList.remove('focus');
+
+        if (index === 0) { // "<<"
+            currentPage = 1;
+        } else if (index === 1) { // "<"
+            if (currentPage > 1) {
+                currentPage--;
+            }
+        } else if (index === buttons.length - 1) { // ">>"
+            currentPage = Math.ceil(qaList.length / itemsPerPage);
+        } else if (index === buttons.length - 2) { // ">"
+            if (currentPage < Math.ceil(qaList.length / itemsPerPage)) {
+                currentPage++;
+            }
+        } else { // "1", "2", "3", ...
+            currentPage = index - 1;
+        }
+        
+        // Add focus class to the current page button
+        buttons[currentPage + 1].classList.add('focus');
+
+        displayPage(currentPage);
+    });
+});
+
+// Display initial page
+displayPage(currentPage);
+// Add focus class to the first page button
+buttons[2].classList.add('focus');
 
     const counterElement = document.getElementById("counter");
     const minusButton = document.getElementById("minus");

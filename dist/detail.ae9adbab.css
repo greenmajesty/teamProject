@@ -201,7 +201,7 @@ h2 {
 }
 .main .main_container .left {
   width: 820px;
-  height: 900px;
+  height: 1080px;
   overflow-y: auto;
 }
 .main .main_container .left .main_img {
@@ -439,14 +439,84 @@ h2 {
   float: left;
   padding: 0 32px;
   border-left: 1px solid black;
+  cursor: pointer;
 }
 .main .main_container .left .left_contents .left_contents_qa .qa_category ul li:last-child {
   border-right: 1px solid black;
 }
+.main .main_container .left .left_contents .left_contents_qa .qa_container {
+  width: 750px;
+  height: 1000px;
+  margin: 90px auto;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_header ul {
+  width: 100%;
+  height: 34px;
+  border-bottom: 1px solid black;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_header ul li {
+  float: left;
+  line-height: 34px;
+  text-align: center;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_header ul li:nth-child(1) {
+  width: 70px;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_header ul li:nth-child(2) {
+  width: 480px;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_header ul li:nth-child(3) {
+  width: 90px;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_header ul li:nth-child(4) {
+  width: 90px;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_body {
+  width: 750px;
+  height: auto;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_body ul li {
+  float: left;
+  line-height: 40px;
+  text-align: center;
+  height: 40px;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_body ul li:nth-child(1) {
+  width: 70px;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_body ul li:nth-child(2) {
+  width: 480px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_body ul li:nth-child(3) {
+  width: 90px;
+  overflow: hidden;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_body ul li:nth-child(4) {
+  width: 90px;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_body .pagination {
+  width: 240px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_body .pagination div {
+  cursor: pointer;
+}
+.main .main_container .left .left_contents .left_contents_qa .qa_container .qa_body .pagination .focus {
+  font-weight: bold;
+  text-decoration: underline;
+}
 .main .main_container .right {
   width: 600px;
   border: 1px solid #707070;
-  height: 900px;
+  height: 1080px;
   overflow-y: auto;
 }
 .main .main_container .right .detail_title {

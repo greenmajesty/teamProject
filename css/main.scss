@@ -7,7 +7,7 @@ li {
     list-style: none;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
@@ -39,26 +39,31 @@ h2 {
     top: 0;
     z-index: 9;
 }
+
 .header {
     width: 100%;
-    height: 80px; 
+    height: 80px;
     display: flex;
     line-height: 80px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     background-color: white;
     border-bottom: 1px solid black;
-    .header_container{
+
+    .header_container {
         @include size (1420px, 80px);
         margin: 0 auto;
+
         .logo {
             @include size (220px, 80px);
             text-align: center;
             float: left;
+
             img {
                 height: 80px;
             }
         }
+
         .lnb {
             @include size (740px, 80px);
             display: flex;
@@ -66,8 +71,9 @@ h2 {
             float: left;
             position: relative;
             z-index: 1000;
+
             .shop_menu {
-                ul{
+                ul {
                     position: absolute;
                     top: 81px;
                     left: -220px;
@@ -75,7 +81,8 @@ h2 {
                     height: 0px;
                     overflow: hidden;
                     transition: 0.3s ease-in;
-                    li{
+
+                    li {
                         @include size (365px, 70px);
                         background-color: white;
                         border-bottom: 1px solid #a2a2a2;
@@ -83,18 +90,21 @@ h2 {
                         border-left: 1px solid #a2a2a2;
                         padding-left: 70px;
                         font-size: 14px;
-                        a{
+
+                        a {
                             display: block;
                         }
-                        &:hover{
+
+                        &:hover {
                             background-color: #efe8da;
                             cursor: pointer;
                         }
                     }
                 }
             }
+
             .our_story_menu {
-                ul{
+                ul {
                     position: absolute;
                     border-bottom: 1px solid #a2a2a2;
                     border-right: 1px solid #a2a2a2;
@@ -107,29 +117,34 @@ h2 {
                     overflow: hidden;
                     width: 1420px;
                     height: 0;
-                    &:hover{
+
+                    &:hover {
                         background-color: #efe8da;
                     }
-                    li{
+
+                    li {
                         float: left;
                         margin-right: 50px;
-                        &:first-child{
+
+                        &:first-child {
                             margin-left: 375px;
                         }
                     }
                 }
             }
-        }   
+        }
+
         .gnb {
             width: 460px;
             display: flex;
             justify-content: flex-end;
             float: left;
+
             .search-container {
                 position: relative;
                 display: inline-block;
             }
-    
+
             .search {
                 @include size (160px, 25px);
                 background-color: #FD8234;
@@ -141,7 +156,7 @@ h2 {
                 color: white;
                 font-family: 'Poppins', sans-serif;
             }
-    
+
             .search-button {
                 position: absolute;
                 top: 2px;
@@ -153,25 +168,25 @@ h2 {
                 cursor: pointer;
                 padding: 0 10px;
             }
-    
+
             .fas.fa-search {
                 color: white;
             }
-    
+
             .search::-webkit-search-cancel-button {
                 display: none;
             }
-    
+
             .login {
                 @include size (25px, 25px);
                 margin-right: 20px;
             }
-    
+
             .mypage {
                 @include size (25px, 25px);
                 margin-right: 20px;
             }
-    
+
             .cart {
                 @include size (25px, 25px);
                 margin-right: 25px;
@@ -183,13 +198,11 @@ h2 {
 
 
 @keyframes menuDown {
-    0%{
+    0% {}
 
-    }
-    100%{
-        
-    }
+    100% {}
 }
+
 //--------------------------------------------------------------------------header
 
 
@@ -349,36 +362,63 @@ h2 {
 .best {
     @include size (1420px, 650px);
     margin-top: 50px;
-    .swiper-container{
+
+    .swiper-container {
         margin: 20px auto;
         width: 1180px;
         height: 458px;
         overflow: hidden;
         position: relative;
-        .swiper-wrapper{
+
+        .swiper-wrapper {
             width: 700px;
             height: 400px;
-            swiper-slide{
-                &.swiper-slide-next{
-                    width: 700px;
-                    height: 700px;
+            .swiper-slide{
+                img{
+                    position: absolute;
+                    left: 34px;
+                    top: 55px;
                 }
             }
-
+            .swiper-slide-next {
+                z-index: 9;
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: -100px;
+                    width: 620px;
+                    height: 458px;
+                }
+            }
         }
-        img{
+
+        img {
             width: 340px;
             height: 340px;
         }
-        i{
-            position: absolute;
-            &::before{
+        .swiper-button-next{
+            i{
+                color: #ccc;
+                font-size: 60px;
+                position: absolute;
+                left: 0;
+            }
+            &::after{
                 display: none;
             }
         }
-        
+        .swiper-button-prev{
+            i{
+                color: #ccc;
+                font-size: 60px;
+            }
+            &::after{
+                display: none;
+            }
+        }
+
     }
-    }
+}
 
 
 
@@ -399,6 +439,7 @@ h2 {
         font-weight: bold;
         justify-content: space-between;
         position: relative;
+        cursor: pointer;
 
         .recommend_progress {
             width: 80px;
@@ -408,6 +449,7 @@ h2 {
             margin-top: 10px;
             top: 25px;
             left: -18px;
+            transition: 0.3s;
         }
     }
 
@@ -464,40 +506,48 @@ h2 {
 
 .brand_story {
     @include size (1420px, 700px);
-    .brand_visual{
+
+    .brand_visual {
         width: 700px;
         height: 700px;
         float: left;
         margin-right: 20px;
         overflow: hidden;
-        img{
+
+        img {
             width: 100%;
             height: 100%;
             transition: 0.3s ease-in;
-            &:hover{
+
+            &:hover {
                 transform: scale(1.3);
             }
         }
     }
-    .brand_text{
+
+    .brand_text {
         width: 700px;
         height: 700px;
         float: left;
-        h2{
+
+        h2 {
             text-align: left;
             margin-left: 50px;
         }
-        h3{
+
+        h3 {
             margin-top: 125px;
             margin-left: 50px;
             font-size: 25px;
         }
-        h4{
+
+        h4 {
             margin-top: 47px;
             margin-left: 50px;
             font-weight: normal;
         }
-        .detail_btn{
+
+        .detail_btn {
             margin-top: 50px;
             margin-left: 50px;
             width: 180px;
@@ -507,7 +557,8 @@ h2 {
             line-height: 50px;
             text-align: center;
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                 background-color: black;
                 color: white;
             }
@@ -517,27 +568,32 @@ h2 {
 
 //---------------------------------------------------------------------------.brand_story
 
-.insta{
+.insta {
     @include size(1420px, 700px);
-    .insta_link{
+
+    .insta_link {
         font-size: 16px;
         text-align: center;
         margin-top: 50px
     }
-    .rolling{
+
+    .rolling {
         width: 1420px;
         height: 220px;
         overflow: hidden;
         margin-top: 100px;
         display: flex;
-        .insta_picture{
+
+        .insta_picture {
             display: flex;
-            li{
+
+            li {
                 width: 220px;
                 height: 220px;
                 margin-right: 20px;
                 display: inline-block;
-                img{
+
+                img {
                     width: 100%;
                     height: 100%;
                 }
@@ -550,6 +606,7 @@ h2 {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-100%);
     }
@@ -559,91 +616,110 @@ h2 {
 .footer {
     @include size (100%, 550px);
     background-color: black;
-    .footer_container{
+
+    .footer_container {
         @include size (1420px, 550px);
         margin: 0 auto;
         position: relative;
+
         .cs_center {
             padding-top: 80px;
             margin-left: 100px;
             color: white;
-            p{
-                &:nth-child(1){
+
+            p {
+                &:nth-child(1) {
                     font-weight: bold;
                     font-size: 20px;
                 }
-                &:nth-child(2){
+
+                &:nth-child(2) {
                     font-size: 30px;
                     color: #FD8234;
                     font-weight: bold;
                     font-family: 'Poppins', sans-serif;
                 }
-                &:nth-child(3){
+
+                &:nth-child(3) {
                     font-size: 18px;
                 }
             }
         }
+
         .footer_logo {
             width: 116px;
             height: 135px;
             position: absolute;
             left: 100px;
             bottom: 70px;
-            img{
+
+            img {
                 width: 100%;
                 height: 100%;
             }
         }
-        .insta_icon{
+
+        .insta_icon {
             position: absolute;
             top: 72px;
             right: 100px;
-            img{
+
+            img {
                 width: 40px;
                 height: 40px;
             }
         }
-        .footer_info{
+
+        .footer_info {
             position: absolute;
             color: white;
             font-weight: bold;
             right: 330px;
-            p{
+
+            p {
                 font-size: 16px;
             }
-            li{
+
+            li {
                 line-height: 24px;
                 font-size: 13px;
             }
         }
-        .footer_support{
+
+        .footer_support {
             color: white;
             position: absolute;
             right: 215px;
             font-weight: bold;
-            p{
+
+            p {
                 font-size: 16px;
             }
-            li{
+
+            li {
                 line-height: 24px;
                 font-size: 13px;
             }
         }
-        .footer_contact{
+
+        .footer_contact {
             color: white;
             position: absolute;
             right: 100px;
             font-weight: bold;
-            p{
+
+            p {
                 color: #f8f8f8;
                 font-size: 16px;
             }
-            li{
+
+            li {
                 line-height: 24px;
                 font-size: 13px;
             }
         }
-        .footer_person{
+
+        .footer_person {
             font-weight: bold;
             color: white;
             position: absolute;
@@ -652,13 +728,16 @@ h2 {
             font-size: 12px;
             cursor: pointer;
         }
-        i{
-            cursor: pointer;   
+
+        i {
+            cursor: pointer;
         }
+
         .fa-chevron-up {
             display: none;
         }
-        .footer_person_info{
+
+        .footer_person_info {
             color: white;
             font-size: 12px;
             position: absolute;
@@ -677,7 +756,8 @@ h2 {
     position: fixed;
     bottom: 50px;
     right: 50px;
-    .top_btn{
+
+    .top_btn {
         margin-top: 20px;
         border-radius: 100%;
         background-color: #000;

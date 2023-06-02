@@ -244,6 +244,70 @@ var swiper = new Swiper('.swiper-container', {
     prevEl: '.swiper-button-prev'
   }
 });
+var recommendListItems = document.querySelectorAll('.recommend_list li');
+var recommendProgress = document.querySelector('.recommend_progress');
+
+// 각 'li' 요소에 클릭 이벤트 리스너를 추가
+recommendListItems.forEach(function (item, index) {
+  item.addEventListener('click', function () {
+    // 클릭된 'li' 요소에 따라 '.recommend_progress'의 위치를 업데이트
+    switch (index) {
+      case 0:
+        recommendProgress.style.left = '-18px';
+        break;
+      case 1:
+        recommendProgress.style.left = '108px';
+        break;
+      case 2:
+        recommendProgress.style.left = '240px';
+        break;
+      case 3:
+        recommendProgress.style.left = '378px';
+        break;
+      case 4:
+        recommendProgress.style.left = '512px';
+        break;
+    }
+  });
+});
+var recommendMainImages = document.querySelectorAll('.recommend_main img');
+
+// Initially hide all images except the first one
+recommendMainImages.forEach(function (img, index) {
+  img.style.display = index === 0 ? 'block' : 'none';
+});
+
+// Add click event listener to each 'li' item
+recommendListItems.forEach(function (item, index) {
+  item.addEventListener('click', function () {
+    // Update progress bar position
+    switch (index) {
+      case 0:
+        recommendProgress.style.left = '-18px';
+        break;
+      case 1:
+        recommendProgress.style.left = '108px';
+        break;
+      case 2:
+        recommendProgress.style.left = '240px';
+        break;
+      case 3:
+        recommendProgress.style.left = '378px';
+        break;
+      case 4:
+        recommendProgress.style.left = '512px';
+        break;
+    }
+
+    // Hide all images
+    recommendMainImages.forEach(function (img) {
+      return img.style.display = 'none';
+    });
+
+    // Show the image that corresponds to the clicked 'li' item
+    recommendMainImages[index].style.display = 'block';
+  });
+});
 $(".footer_person").click(function () {
   $(".fa-chevron-down").toggle();
   $(".fa-chevron-up").toggle();
@@ -316,7 +380,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50874" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62698" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
