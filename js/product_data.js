@@ -3,7 +3,7 @@ const productList = [
       id: "product1",
       name: "LED전구 디밍 F-LED 3D TREE",
       price: 30000,
-      src: "../img/1111.jpg",
+      src: "./img/1111.jpg",
       best: true,
       deliver: true,
       new: false
@@ -12,7 +12,7 @@ const productList = [
       id: "product2",
       name: "IK 시리즈 SNOWMAN22 SOLID Table Stand",
       price: 230000,
-      src: "../img/1112.jpg",
+      src: "./img/1112.jpg",
       best: true,
       deliver: true,
       new: false
@@ -57,7 +57,7 @@ const productList = [
       id: "product7",
       name: "IK 시리즈 MAGRITTE40 Pendant",
       price: 380000,
-      src: "../img/1117.jpg",
+      src: "./img/1117.jpg",
       best: false,
       deliver: false,
       new: true
