@@ -1,3 +1,5 @@
+import productList from './product_data.js';
+
 const bannerImg = $('.main_visual img')
 const bannerImgCount = bannerImg.length;
 const bannerImageWidth = 1420;
@@ -144,69 +146,38 @@ const swiper = new Swiper('.swiper-container', {
         prevEl: '.swiper-button-prev',
     },
 });
-
 const recommendListItems = document.querySelectorAll('.recommend_list li');
 const recommendProgress = document.querySelector('.recommend_progress');
+const recommendMainImages = document.querySelectorAll('.recommend_main img');
+const recommendSideImages = document.querySelectorAll('.recommend_side img');
 
-// 각 'li' 요소에 클릭 이벤트 리스너를 추가
-recommendListItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        // 클릭된 'li' 요소에 따라 '.recommend_progress'의 위치를 업데이트
-        switch (index) {
-            case 0:
-                recommendProgress.style.left = '-18px';
-                break;
-            case 1:
-                recommendProgress.style.left = '108px';
-                break;
-            case 2:
-                recommendProgress.style.left = '240px';
-                break;
-            case 3:
-                recommendProgress.style.left = '378px';
-                break;
-            case 4:
-                recommendProgress.style.left = '512px';
-                break;
+const leftPositions = ['-18px', '108px', '240px', '378px', '512px'];
+
+function updateSideImages(startIndex) {
+    recommendSideImages.forEach((img, index) => {
+        const product = productList[startIndex + index];
+        if (product) {
+            img.src = product.src;
         }
     });
-});
+}
 
+updateSideImages(6); 
 
-const recommendMainImages = document.querySelectorAll('.recommend_main img');
-
-// Initially hide all images except the first one
 recommendMainImages.forEach((img, index) => {
     img.style.display = index === 0 ? 'block' : 'none';
 });
 
-// Add click event listener to each 'li' item
 recommendListItems.forEach((item, index) => {
     item.addEventListener('click', () => {
-        // Update progress bar position
-        switch (index) {
-            case 0:
-                recommendProgress.style.left = '-18px';
-                break;
-            case 1:
-                recommendProgress.style.left = '108px';
-                break;
-            case 2:
-                recommendProgress.style.left = '240px';
-                break;
-            case 3:
-                recommendProgress.style.left = '378px';
-                break;
-            case 4:
-                recommendProgress.style.left = '512px';
-                break;
-        }
+        recommendProgress.style.left = leftPositions[index];
 
-        // Hide all images
         recommendMainImages.forEach(img => img.style.display = 'none');
 
-        // Show the image that corresponds to the clicked 'li' item
         recommendMainImages[index].style.display = 'block';
+
+        const startIndex = index * 6; 
+        updateSideImages(startIndex);
     });
 });
 
@@ -227,16 +198,13 @@ function setFlowBanner() {
     const $list = $('.rolling .insta_picture');
     let wrapWidth = $wrap.width();
     let listWidth = $list.width();
-    const speed = 92; //1초에 몇픽셀 이동하는지 설정
+    const speed = 92; 
 
-    //리스트 복제
     let $clone = $list.clone();
     $wrap.append($clone);
     flowBannerAct()
 
-    //배너 실행 함수
     function flowBannerAct() {
-        //무한 반복을 위해 리스트를 복제 후 배너에 추가
         if (listWidth < wrapWidth) {
             const listCount = Math.ceil(wrapWidth * 2 / listWidth);
             for (let i = 2; i < listCount; i++) {

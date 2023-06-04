@@ -11,6 +11,9 @@
   "devDependencies": {
     "lodash": "^4.17.21",
     "parcel-bundler": "^1.12.5",
+    "posthtml": "^0.16.6",
+    "posthtml-doctype": "^1.1.1",
+    "posthtml-include": "^1.7.4",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2"
   },
@@ -423,7 +426,6 @@
     "postcss-svgo": "^4.0.3",
     "postcss-unique-selectors": "^4.0.1",
     "postcss-value-parser": "^3.3.1",
-    "posthtml": "^0.11.6",
     "posthtml-parser": "^0.4.2",
     "posthtml-render": "^1.4.0",
     "prelude-ls": "^1.1.2",
