@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/login_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"/>
+    <script>
+        function showPopup() {
+            var popupWidth = 940;
+            var popupHeight = 750;
+            var left = (window.innerWidth/2) - (popupWidth/2);
+            var top = (window.innerHeight/2) - (popupHeight/2);
+
+            var popup = window.open("search_id.html", "Popup", "width=" + popupWidth +"px" + ",height=" + popupHeight + "px" + ",top=" + top + ",left=" + left + ",resizable=no");
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <include src="./header.html"></include>
+    <div class="wrap">
+        <div class="login">
+            <h2>
+                로그인
+            </h2>
+            <div class="login_container">
+                <input type="text" class="id" placeholder="아이디" autofocus>
+                <input type="password" class="password" placeholder="패스워드">
+                <div class="submit">
+                    <a href="#">로그인하기</a>
+                </div>
+                <div class="signin">
+                    <a href="./signin.html">
+                        회원가입
+                    </a>
+                </div>
+                <div class="search_id">
+                    <a href="./search_id.html" onclick="return showPopup()">아이디/비밀번호 찾기</a>
+                </div>
+            </div>
+            <div class="sns">
+                <div class="sns_line">
+                    <div class="line"></div>
+                    <div> 다음 계정으로 로그인하기</div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="logos">
+                <div class="facebook">
+                   <a href=""><img src="./img/facebook.png" alt=""></a> 
+                </div>
+                <div class="google">
+                  <a href=""> <img src="./img/google.png" alt=""></a> 
+                </div>
+                <div class="naver">
+                 <a href=""> <img src="./img/naver.png" alt=""></a>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <include src="./footer.html"></include>
+    <include src="./topBtn.html"></include>
+</body>
+</html>

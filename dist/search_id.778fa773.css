@@ -1,0 +1,123 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.container {
+    width: 940px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    margin-top: 30px;
+    margin-left: 120px;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+.box {
+    width: 440px;
+    height: 50px;
+    line-height: 50px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+}
+
+.box:focus {
+    outline: none;
+}
+
+.name {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+.tel {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.submit {
+    width: 360px;
+    height: 60px;
+    background-color: #FD8234;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    margin: 0 auto;
+    margin-top: 40px;
+    color: white;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+.id_pw {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.tel_pw {
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 140px;
+}
+
+.tel1_pw {
+    width: 140px;
+    margin-left: 10px;
+}
+.tel2_pw {
+    width: 140px;
+    margin-left: 10px;
+}
+
+.name_pw {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.email_pw {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.submit_pw {
+    width: 360px;
+    height: 60px;
+    background-color: #FD8234;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    margin: 0 auto;
+    margin-top: 40px;
+    color: white;
+}
+
+.submit_pw:hover {
+    display: block;
+    cursor: pointer;
+}
+
+/*# sourceMappingURL=/search_id.778fa773.css.map */

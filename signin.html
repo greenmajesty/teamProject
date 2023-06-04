@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/signin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            var inputTel1Pw = document.querySelector('.tel1_pw');
+            var inputTel2Pw = document.querySelector('.tel2_pw');
+            var form = document.querySelector('.signin_container');
+            var inputId = document.querySelector('.id');
+            var inputPw = document.querySelector('.pw');
+            var inputPwChk = document.querySelector('.pw_chk');
+
+            window.termsAccepted = false;
+
+            [inputTel1Pw, inputTel2Pw].forEach(function (input) {
+                input.addEventListener('input', function (e) {
+                    e.target.value = e.target.value.replace(/[^\d]/g, '');
+                });
+            });
+            inputTel1Pw.addEventListener('input', function (e) {
+                if (e.target.value.length === e.target.maxLength) {
+                    inputTel2Pw.focus();
+                }
+            });
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // form의 기본 동작을 취소
+                if (inputId.value.length < 5) {
+                    alert('아이디는 5자 이상이어야 합니다.');
+                    return;
+                }
+                if (inputPw.value.length < 8) {
+                    alert('비밀번호는 8자 이상이어야 합니다.');
+                    return;
+                }
+                if (inputPw.value !== inputPwChk.value) {
+                    alert('비밀번호와 비밀번호 확인이 다릅니다.');
+                    return;
+                }
+                if (!window.termsAccepted) {
+                    alert('회원가입 약관에 동의해야 합니다.');
+                    return;
+                }
+                e.target.submit(); // 모든 검사를 통과한 경우에만 form 제출
+            });
+        });
+
+        function showPopup() {
+            var popupWidth = 940;
+            var popupHeight = 750;
+            var left = (window.innerWidth / 2) - (popupWidth / 2);
+            var top = (window.innerHeight / 2) - (popupHeight / 2);
+
+            var popup = window.open("term.html", "Popup", "width=" + popupWidth + "px" + ",height=" + popupHeight +
+                "px" + ",top=" + top + ",left=" + left + ",resizable=no");
+            return false;
+        }
+
+        function sample4_execDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function (data) {
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                    // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var roadAddr = data.roadAddress; // 도로명 주소 변수
+                    var extraRoadAddr = ''; // 참고 항목 변수
+
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                        extraRoadAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if (data.buildingName !== '' && data.apartment === 'Y') {
+                        extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data
+                            .buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if (extraRoadAddr !== '') {
+                        extraRoadAddr = ' (' + extraRoadAddr + ')';
+                    }
+
+                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                    document.getElementById('sample4_postcode').value = data.zonecode;
+                    document.getElementById("sample4_roadAddress").value = roadAddr;
+                    document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+
+                    // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                    if (roadAddr !== '') {
+                        document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                    } else {
+                        document.getElementById("sample4_extraAddress").value = '';
+                    }
+
+                    var guideTextBox = document.getElementById("guide");
+                    // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                    if (data.autoRoadAddress) {
+                        var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                        guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                        guideTextBox.style.display = 'block';
+
+                    } else if (data.autoJibunAddress) {
+                        var expJibunAddr = data.autoJibunAddress;
+                        guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                        guideTextBox.style.display = 'block';
+                    } else {
+                        guideTextBox.innerHTML = '';
+                        guideTextBox.style.display = 'none';
+                    }
+                }
+            }).open();
+        }
+    </script>
+</head>
+
+<body>
+    <include src="./header.html"></include>
+    <div class="wrap">
+
+        <div class="signin">
+            <div class="signin">
+                <form class="signin_container">
+                    <h2>회원가입</h2>
+                    <input type="text" class="id box" placeholder="아이디                      (5자이상)" required>
+                    <input type="text" class="email box" placeholder="이메일 주소" required>
+                    <input type="password" class="pw box" placeholder="비밀번호                   (8자이상)" required>
+                    <select class="tel_pw box">
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                    </select>
+                    <input type="text" class="tel1_pw box" placeholder="  0 0 0 0" maxlength="4" required>
+                    <input type="text" class="tel2_pw box" placeholder="  0 0 0 0" maxlength="4" required>
+                    <input type="password" class="pw_chk box" placeholder="비밀번호 확인" required>
+                    <input type="text" class="name box" placeholder="이름" required>
+                    <input type="text" class="addressnum" id="sample4_postcode" placeholder="우편번호">
+                    <input type="button" class="addressnum_btn" onclick="sample4_execDaumPostcode()"
+                        value="우편번호 찾기"><br>
+                    <input type="text" class="street box" id="sample4_roadAddress" placeholder="도로명주소">
+                    <input type="text" class="land box" id="sample4_jibunAddress" placeholder="지번주소">
+                    <span id="guide" style="color:#999;display:none"></span>
+                    <input type="text" class="detail box" id="sample4_detailAddress" placeholder="상세주소">
+                    <input type="text" class="extra box" id="sample4_extraAddress" placeholder="참고항목">
+                    <div class="terms"><a href="" onclick="return showPopup()">회원약관</a></div>
+                    <div class="submit-container">
+                        <input type="submit" class="submit" value="가입하기">
+                    </div>
+                    <div class="already">이미 계정이 있습니까? <a href="./login.html">로그인하기</a></div>
+                </form>
+            </div>
+            <div class="sns">
+                <div class="sns_line">
+                    <div class="line"></div>
+                    <div> 다음 계정으로 회원가입하기</div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="logos">
+                <div class="facebook">
+                    <a href=""><img src="./img/facebook.png" alt=""></a>
+                </div>
+                <div class="google">
+                    <a href=""> <img src="./img/google.png" alt=""></a>
+                </div>
+                <div class="naver">
+                    <a href=""> <img src="./img/naver.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <include src="./footer.html"></include>
+    <include src="./topBtn.html"></include>
+</body>
+
+</html>

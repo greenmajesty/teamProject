@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/search_id.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            var button = document.querySelector('.submit');
+            var name = document.querySelector('.name').value;
+            var email = document.querySelector('.email').value;
+            var buttonPw = document.querySelector('.submit_pw');
+            var inputTel1Pw = document.querySelector('.tel1_pw');
+            var inputTel2Pw = document.querySelector('.tel2_pw');
+            var namePw = document.querySelector('.name_pw').value;
+            var emailPw = document.querySelector('.email_pw').value;
+            var idPw = document.querySelector('.id_pw').value;
+            var telPw = document.querySelector('.tel_pw').value;
+            var tel1Pw = document.querySelector('.tel1_pw').value;
+            var tel2Pw = document.querySelector('.tel2_pw').value;
+
+            button.addEventListener('click', function checkId() {
+
+                if (name === "홍길동" && email === "hong@naver.com") {
+                    alert("당신의 아이디는 green 입니다.");
+                } else {
+                    alert("아이디나 이메일이 틀렸거나 정보가 없습니다.");
+                }
+            });
+
+            buttonPw.addEventListener('click', function checkPw() {
+
+                if (namePw === "홍길동" && emailPw === "hong@naver.com" && idPw === "green" && telPw ==
+                    '010' && tel1Pw == '1234' && tel2Pw == '1234') {
+                    alert("비밀번호를 이메일로 전송했습니다.");
+                } else {
+                    alert("항목중 하나가 틀렸거나 정보가 없습니다.");
+                }
+            });
+
+            [inputTel1Pw, inputTel2Pw].forEach(function (input) {
+                input.addEventListener('input', function (e) {
+                    e.target.value = e.target.value.replace(/[^\d]/g, '');
+                });
+            });
+            
+            inputTel1Pw.addEventListener('input', function (e) {
+                if (e.target.value.length === e.target.maxLength) {
+                    inputTel2Pw.focus();
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>아이디 찾기</h2>
+        <p>아이디를 찾으시려면 아래의 항목을 입력하신 후 확인 버튼을 눌러주세요.</p>
+        <input type="text" class="name box" placeholder="이름" autofocus>
+        <input type="text" class="email box" placeholder="이메일 주소">
+        <div class="submit">확인</div>
+        <h2>비밀번호 찾기</h2>
+        <p>비밀번호를 찾으시려면 아래의 항목을 입력하신 후 확인 버튼을 눌러주세요.</p>
+        <input type="text" class="id_pw box" placeholder="아이디">
+        <select class="tel_pw box">
+            <option value="010">010</option>
+            <option value="011">011</option>
+        </select>
+        <input type="text" class="tel1_pw box" placeholder="  0 0 0 0" maxlength="4">
+        <input type="text" class="tel2_pw box" placeholder="  0 0 0 0" maxlength="4">
+        <input type="text" class="name_pw box" placeholder="이름">
+        <input type="text" class="email_pw box" placeholder="이메일 주소">
+        <div class="submit_pw">확인</div>
+    </div>
+</body>
+
+</html>

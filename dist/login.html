@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/sub.a58cbcea.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/login_style.b8f63899.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-    <script src="/product_data.43b0b8a3.js" type="module" defer=""></script>
-    <script src="/sub.3e71813d.js" type="module" defer=""></script>
-<script src="/sub.a58cbcea.js"></script><script src="/detail.js"></script></head>
-
+    <script>function showPopup() {
+  var popupWidth = 940;
+  var popupHeight = 750;
+  var left = window.innerWidth / 2 - popupWidth / 2;
+  var top = window.innerHeight / 2 - popupHeight / 2;
+  var popup = window.open("search_id.html", "Popup", "width=" + popupWidth + "px" + ",height=" + popupHeight + "px" + ",top=" + top + ",left=" + left + ",resizable=no");
+  return false;
+}</script>
+<script src="/login_style.b8f63899.js"></script><script src="/signin.js"></script></head>
 <body>
     <header class="header">
     <div class="header_container">
@@ -67,65 +70,44 @@
         </div>
     </div>
 </header>
-    <div class="path">
-        <div><a href="/index.html">home</a></div>
-        <div>></div>
-        <div>shop</div>
-        <div>></div>
-        <div>all</div>
-    </div>
-    <div class="category">
-        <ul class="category_img">
-            <li>A</li>
-            <li><img src="/20230420_142553.55fdda28.png" alt=""></li>
-            <li><img src="/플로어.1c4702bb.png" alt=""></li>
-            <li><img src="/에셋-62.a5a00081.png" alt=""></li>
-            <li><img src="/에셋-63.fa09b765.png" alt=""></li>
-            <li><img src="/2023-04-21 17 59 41.c6702167.png" alt=""></li>
-            <li><img src="/three.394806b0.png" alt=""></li>
-            <li><img src="/garden.d8b62b66.png" alt=""></li>
-            <li><img src="/에셋-66.c23249d6.png" alt=""></li>
-            <li><img src="/sanup.b623867a.png" alt=""></li>
-            <li><img src="/crupt.0ee0ad79.png" alt=""></li>
-            <li><img src="/led.543a0e43.png" alt=""></li>
-        </ul>
-        <ul class="category_text">
-            <li>ALL</li>
-            <li>IK 테이블 스탠드</li>
-            <li>IK 플로어 스탠드</li>
-            <li>IK 팬던트</li>
-            <li>클래식 전구</li>
-            <li>장식용 전구</li>
-            <li>삼파장 전구</li>
-            <li>가드닝 전구</li>
-            <li>할로겐 전구</li>
-            <li>산업용 전구</li>
-            <li>크립톤 전구</li>
-            <li>LED 전구</li>
-        </ul>
-    </div>
-    <div class="main">
-        <h3>ALL</h3>
-        <select id="filter-select">
-            <option value="all">모두 보기</option>
-            <option value="best">BEST만 보기</option>
-            <option value="deliver">당일배송만 보기</option>
-            <option value="price-asc">가격 낮은 순</option>
-            <option value="price-desc">가격 높은 순</option>
-        </select>
-        <div class="main_container">
-        </div>
-        <div class="pagenation">
-            <div>&lt;&lt;</div>
-            <div>&lt;</div>
-            <div class="now_page">1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>></div>
-            <div>>></div>
+    <div class="wrap">
+        <div class="login">
+            <h2>
+                로그인
+            </h2>
+            <div class="login_container">
+                <input type="text" class="id" placeholder="아이디" autofocus="">
+                <input type="password" class="password" placeholder="패스워드">
+                <div class="submit">
+                    <a href="#">로그인하기</a>
+                </div>
+                <div class="signin">
+                    <a href="/signin.html">
+                        회원가입
+                    </a>
+                </div>
+                <div class="search_id">
+                    <a href="/search_id.html" onclick="return showPopup()">아이디/비밀번호 찾기</a>
+                </div>
+            </div>
+            <div class="sns">
+                <div class="sns_line">
+                    <div class="line"></div>
+                    <div> 다음 계정으로 로그인하기</div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="logos">
+                <div class="facebook">
+                   <a href=""><img src="/facebook.1ac97181.png" alt=""></a> 
+                </div>
+                <div class="google">
+                  <a href=""> <img src="/google.933115d9.png" alt=""></a> 
+                </div>
+                <div class="naver">
+                 <a href=""> <img src="/naver.4571d112.png" alt=""></a>  
+                </div>
+            </div>
         </div>
     </div>
     <footer class="footer">
@@ -184,5 +166,4 @@
     </div>
 </div>
 </body>
-
 </html>

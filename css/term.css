@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.container {
+    width: 940px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.container form ul li {
+    width: 700px;
+    margin: 0 auto;
+    border-bottom: 1px solid black;
+    height: 50px;
+    line-height: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    position: relative;
+}
+
+input[type='checkbox'] {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+}
+
+.term1 {
+    width: 700px;
+    height: 120px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 20px;
+    overflow: scroll;
+    white-space: pre-line;
+}
+
+.term2 {
+    width: 700px;
+    height: 120px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 20px;
+    overflow: scroll;
+    white-space: pre-line;
+}
+
+.submit {
+    width: 360px;
+    height: 60px;
+    background-color: #FD8234;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    margin: 0 auto;
+    margin-top: 40px;
+    color: white;
+    display: block;
+}
+
+.submit:hover {
+    cursor: pointer;
+    display: block;
+}
