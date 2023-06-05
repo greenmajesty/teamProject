@@ -1015,11 +1015,6 @@ exports.default = _default;
 var _product_data = _interopRequireDefault(require("./product_data.js"));
 var _qa = _interopRequireDefault(require("./qa.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-$(function () {
-  $('#header').load("header.html");
-  $('#footer').load("footer.html");
-  $('#topBtn').load("topBtn.html");
-});
 $(document).ready(function () {
   $(".lnb > div:first-child").mouseenter(function () {
     $(".lnb .shop_menu ul").css('height', '1000px');
@@ -1331,7 +1326,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50183" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50590" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

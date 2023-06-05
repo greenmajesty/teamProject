@@ -2,13 +2,6 @@ import productList from './product_data.js';
 import qaList from './qa.js';
 
 
-$(function () {
-    $('#header').load("header.html");
-    $('#footer').load("footer.html");
-    $('#topBtn').load("topBtn.html");
-})
-
-
 $(document).ready(function () {
 
     $(".lnb > div:first-child").mouseenter(function () {
